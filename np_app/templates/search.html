@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    {% if no_match %}
+        <p>No match found</p>
+    {% else %}
+        <p>Match found for {{ user_email }} in the following file(s):</p>
+        <ul>
+            {% for file in matching_files %}
+                <li>{{ file }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+
+<style>
+  body{
+        background: linear-gradient(0deg, hsla(0, 0%, 0%, 1) 0%, hsla(349, 45%, 33%, 1) 100%);
+        display: flexbox;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 30px;
+        margin: 0;
+        padding: 20px;
+        font-family: "monaco", monospace;
+    }
+
+    h1{
+        color: white;
+        text-align: center;
+    }
+
+    p{
+        color: white;
+        text-align: center;
+        padding: 50px;
+    }
+
+    ul{
+        list-style-type: none;
+        padding: 0;
+        color: white;
+        text-align: center;
+    }
+
+    li{
+        margin-bottom:10px;
+    }
+
+</style>
+
+</html>
+
