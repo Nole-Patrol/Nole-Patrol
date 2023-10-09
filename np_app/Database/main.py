@@ -1,123 +1,193 @@
 import os
 import re
 
+# Variable to store the directory if user chooses to set it once
+global_directory = None
+
+
+def set_directory():
+    global global_directory
+    global_directory = input("Please enter the directory path: ")
+    if not os.path.exists(global_directory):
+        print("Directory does not exist. Falling back to asking for directory for each choice.")
+        global_directory = None
+
+
+def get_directory():
+    if global_directory:
+        return global_directory
+    else:
+        directory = get_directory()
+        while not os.path.exists(directory):
+            print("Directory does not exist. Please enter again.")
+            directory = get_directory()
+        return directory
+
 
 def menu():
-    print("------------------------\n     Database Entry\n------------------------\n" +
+    print("\n------------------------\n     Database Entry\n------------------------\n" +
           "1. Parse Databases\n" +
           "2. Combine Files\n" +
-          "3. Extract Emails (Single File)\n" +
-          "4. Extract Emails (Directory)\n" +
-          "5. Omit Duplicate Entries (Directory)\n" +
-          "6. Display Stats\n" +
-          "7. Quit\n")
+          "3. Extract FSU Emails (Single File)\n" +
+          "4. Extract FSU Emails (Directory)\n" +
+          "5. Remove Duplicate Entries (Directory)\n" +
+          "6. Remove Invalid Entries (Directory)\n" +
+          "7. Display Stats\n" +
+          "8. Display record names and lines\n" +
+          "9. Search Data\n" +
+          "10. Quit\n")
 
 
+# Handle Choices - Depending on user input, handle their choice
 def handle_choice(choice):
+    # 1. Parse Databases
     if choice == "1":
+        print("This option will parse a single database and put the data in the correct format")
         input_file = input("Enter input file path: ")
         if not os.path.exists(input_file):
             print("Input file does not exist.")
             return
 
         parse_databases(input_file)
+        print("\033[92mDatabase successfully parsed\033[0m")
 
+    # 2. Combine Files
     elif choice == "2":
-        input_directory = input("Enter input directory path: ")
-        if not os.path.exists(input_directory):
-            print("Input directory does not exist.")
+        print("This option will combine files if the database is split up in multiple files")
+        input_file = input("Enter input file path: ")
+        if not os.path.exists(input_file):
+            print("Input file does not exist.")
             return
 
-        combine_files_in_directory(input_directory)
-        print(f"Files combined and saved to {os.path.join(input_directory, 'combined_data.txt')}")
+        combine_files_in_directory(input_file)
+        print(
+            "\033[92mFiles combined and saved to:\033[0m {}".format(os.path.join(input_file, 'combined_data.txt')))
 
+    # 3. Extract Emails (Single File)
     elif choice == "3":
+        print("This option will find all fsu.edu matches in a single file and save them")
         input_file = input("Enter input file path: ")
         if not os.path.exists(input_file):
             print("Input file does not exist.")
             return
 
         total_matches = search_matches(input_file)
-        print(f"Total matches found: {total_matches}")
+        print("\033[92mTotal matches found: {}\033[0m".format(total_matches))
 
+    # 4. Extract Emails (Directory)
     elif choice == "4":
-        root_dir = input("Enter root directory path: ")
-        if not os.path.exists(root_dir):
-            print("Directory does not exist.")
-            return
-
-        search_matches_multiple(root_dir)
-        print("Search completed and match files created.")
-
-    elif choice == "5":
-        directory_path = input("Enter the directory path: ")
+        print("This option will find all fsu.edu matches in multiple files and save them")
+        directory_path = get_directory()
         if not os.path.exists(directory_path):
             print("Directory does not exist.")
             return
 
-        remove_duplicate_lines(directory_path)
+        total_matches = search_matches_multiple(directory_path)
+        print("\033[92mTotal matches found: {}\033[0m".format(total_matches))
 
-    elif choice == "6":
-        input_file_path = input("Enter folder path that holds the data: ")
-        if not os.path.exists(input_file_path):
-            print("Folder does not exist.")
+    # 5. Remove Duplicate Entries (Directory)
+    elif choice == "5":
+        print("This option will remove duplicate lines found in files")
+        directory_path = get_directory()
+        if not os.path.exists(directory_path):
+            print("Directory does not exist.")
             return
 
-        display_stats(input_file_path)
+        duplicate_lines = remove_duplicate_lines(directory_path)
+        print("\033[91mTotal duplicate lines removed:\033[0m {}".format(duplicate_lines))
+
+    # 6. Remove Entries with Errors (Directory)
+    elif choice == "6":
+        print("This option will remove lines with errors or not in the Email:Password format")
+        directory_path = get_directory()
+        if not os.path.exists(directory_path):
+            print("Directory does not exist.")
+            return
+
+        error_matches = remove_errors(directory_path)
+        print("\033[91mTotal lines with errors removed:\033[0m {}".format(error_matches))
+        print(
+            "\033[92mLines with errors saved to:\033[0m {}".format(os.path.join(directory_path, 'errors.txt')))
+
+    # 7. Display Stats
+    elif choice == "7":
+        print("This option displays statistics from all databases")
+        directory_path = get_directory()
+        if not os.path.exists(directory_path):
+            print("Directory does not exist.")
+            return
+
+        display_stats(directory_path)
+
+    # 8. Display record names and lines
+    elif choice == "8":
+        print("This option will save a list of record names and amount of lines (For use in Excel)")
+        directory_path = get_directory()
+        if not os.path.exists(directory_path):
+            print("Directory does not exist.")
+            return
+
+        record_lines_names(directory_path)
+
+    # 9. Search data
+    elif choice == "9":
+        print("This option will search the data and print email matches")
+        directory_path = get_directory()
+        if not os.path.exists(directory_path):
+            print("Directory does not exist.")
+            return
+
+        search_data(directory_path)
 
 
+# Parse Databases - Parses a given database when it's in not correct format
 def parse_databases(input_file):
-    """
-    This parses a given database when it's in not correct format
-    Many databases are in different formats, and one function won't be able to work for all of them
-    This inner function needs adjustments based on the database format
-    """
+    # Many databases are in different formats, and one function won't be able to work for all of them
+    # This inner function needs adjustments based on the database format
 
-    def format_line(line):
-        """
-        Extracts and formats the relevant information from a line in the database
-
-        line: A line from the input file.
-        return: Formatted line or None if the line doesn't meet the criteria
-        """
-        parts = line.strip().split(':')
+    # Format Lines - Extracts and formats the relevant information from a line in the database
+    def format_line(data_line):
+        parts = data_line.strip().split(':')
         if len(parts) >= 4:
             return f"{parts[1]}:{parts[2]}"
         else:
             return None
 
-    # Automatically determine the output file name based on the input file name
-    base_name, ext = os.path.splitext(input_file)  # Split input file name and its extension
-    output_file = base_name + "_parsed" + ext  # Construct the name for the output file
+    # Determine the output file name based on the input file name
+
+    # Split input file name and its extension
+    base_name, ext = os.path.splitext(input_file)
+
+    # Construct the name for the output file
+    output_file = base_name + "_parsed" + ext
 
     # Open the input file for reading and the output file for writing
-    with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
+    with (open(input_file, 'r', encoding="iso-8859-1")
+          as infile, open(output_file, 'w', encoding="iso-8859-1") as outfile):
+
         for line in infile:
             # Format the current line using the inner function
             formatted_line = format_line(line)
-            if formatted_line:  # If the line is successfully formatted, write it to the output file
+
+            # If the line is successfully formatted, write it to the output file
+            if formatted_line:
                 outfile.write(formatted_line + '\n')
 
     # Print a message indicating where the parsed data is saved
     print(f"Formatted data saved to {output_file}")
 
 
+# Combine files - Combines separate files (Used when a database is split up)
 def combine_files_in_directory(directory_path):
-    """
-    Combines the contents of all files in a directory into a single output file named "combined_data.txt"
-
-    directory_path: Path to the directory containing files
-    """
-
-    # Generate the path for the output file within the provided directory
+    # Generate the path for the output file
     output_file_path = os.path.join(directory_path, "combined_data.txt")
 
     # Open the output file for writing
-    with open(output_file_path, 'w', encoding='utf-8') as output_file:
+    with open(output_file_path, 'w', encoding='iso-8859-1') as output_file:
         # Iterate through all files in the directory and its subdirectories
         for root, _, files in os.walk(directory_path):
             for file_name in files:
-                # Skip processing the output file itself to avoid recursive inclusion
+                # Skip processing the output file itself
                 if file_name == "combined_data.txt":
                     continue
 
@@ -126,29 +196,26 @@ def combine_files_in_directory(directory_path):
 
                 try:
                     # Open the current file for reading
-                    with open(file_path, 'r', encoding='utf-8') as input_file:
+                    with open(file_path, 'r', encoding='iso-8859-1') as input_file:
                         for line in input_file:
                             # Remove any extra whitespace
                             line = line.strip()
+
                             # Write the processed line to the output file
                             output_file.write(line + '\n')
+
+                # Handle any errors that arise while reading the file
                 except (IOError, UnicodeDecodeError) as e:
-                    # Handle any errors that arise while reading the file
                     print(f"Error reading file '{file_path}': {e}")
 
 
+# Search matches (One file) - Searches for matches for fsu.edu in databases
 def search_matches(input_file_path):
-    """
-    Searches for specific patterns (keywords) in the given file and writes matched lines to a new output file
-
-    input_file_path: Path to the file to be searched
-    return: Number of lines that matched any of the keywords
-    """
-
-    # Define the search patterns (keywords) we're looking for within the file
+    # Define the search patterns keywords
     keywords = [r"@fsu\.edu", r"@[a-zA-Z]+\.(fsu\.edu)"]
 
-    line_count = 0  # Initialize counter for matched lines
+    # Initialize counter for matched lines
+    line_count = 0
 
     # Determine the base name and extension of the input file
     base_name, ext = os.path.splitext(input_file_path)
@@ -157,49 +224,51 @@ def search_matches(input_file_path):
     output_file_path = base_name + "_matches" + ext
 
     # Open the output file for writing
-    with open(output_file_path, "w", encoding="utf-8") as output_file:
+    with open(output_file_path, "w", encoding="iso-8859-1") as output_file:
         try:
             # Open the input file for reading
-            with open(input_file_path, "r", encoding="utf-8", errors="ignore") as input_file:
+            with open(input_file_path, "r", encoding="iso-8859-1", errors="ignore") as input_file:
                 for line in input_file:
                     for keyword in keywords:
                         # Check if the current line matches any of the keywords
                         match = re.search(keyword, line)
+
                         if match:
                             # Write the matched line to the output file
                             output_file.write(f"{line}")
                             line_count += 1
+
                             # Exit the inner loop after a match to avoid duplicate entries
                             break
+
+        # Handle any errors that arise while processing the file
         except Exception as e:
-            # Handle any errors that arise while processing the file
             print(f"Error processing {input_file_path}: {str(e)}")
 
     # Return the total count of matched lines
     return line_count
 
 
+# Search matches (All files) - Searches for matches for fsu.edu in databases
 def search_matches_multiple(directory_path):
-    """
-    Searches for specific patterns (keywords) in all files within the given directory
-    For each file, if any lines match the patterns, those lines are written to a new output file
-
-    directory_path: Path to the directory containing files to be searched
-    """
-
-    # Define the search patterns (keywords) we're looking for within the files
+    # Define the search patterns keywords
     keywords = [r"@fsu\.edu", r"@[a-zA-Z]+\.(fsu\.edu)"]
+
+    # Initialize counter for matched lines
+    line_count = 0
 
     # Iterate through all files in the directory and its subdirectories
     for root, _, files in os.walk(directory_path):
         for file_name in files:
             # Construct the full path to the current file
             file_path = os.path.join(root, file_name)
-            matches = []  # List to store lines that match the keywords
+
+            # List to store lines that match the keywords
+            matches = []
 
             try:
                 # Open the current file for reading
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as input_file:
+                with open(file_path, "r", encoding="iso-8859-1", errors="ignore") as input_file:
                     for line in input_file:
                         for keyword in keywords:
                             # Check if the current line matches any of the keywords
@@ -207,27 +276,31 @@ def search_matches_multiple(directory_path):
                             if match:
                                 # Add the matched line to the matches list
                                 matches.append(line)
+                                line_count += 1
+
                                 # Exit the inner loop after a match to avoid duplicate entries
                                 break
+
+            # Handle any errors that arise while processing the file
             except Exception as e:
-                # Handle any errors that arise while processing the file
                 print(f"Error processing {file_path}: {str(e)}")
 
             # If any matches were found in the current file
             if matches:
                 # Construct the name for the output file based on the original file's name
                 output_file_path = os.path.join(root, f"{file_name}_matches.txt")
+
                 # Open the output file for writing and save the matched lines
-                with open(output_file_path, "w", encoding="utf-8") as output_file:
+                with open(output_file_path, "w", encoding="iso-8859-1") as output_file:
                     output_file.writelines(matches)
 
+    return line_count
 
+
+# Remove Duplicates - Goes through all files to remove duplicate lines.
 def remove_duplicate_lines(directory_path):
-    """
-    Iterates through all files in the given directory to remove duplicate lines.
-
-    directory_path: Path to the directory containing files to be processed
-    """
+    # Total number of duplicates
+    total_duplicates = 0
 
     # Walk through the directory and its subdirectories
     for dirpath, _, filenames in os.walk(directory_path):
@@ -242,7 +315,9 @@ def remove_duplicate_lines(directory_path):
 
                 # Use a set to track unique lines for efficient look-up
                 unique_lines = set()
-                output_lines = []  # List to store non-duplicate lines
+
+                # List to store non-duplicate lines
+                output_lines = []
 
                 # Iterate through each line in the file
                 for line in lines:
@@ -250,6 +325,7 @@ def remove_duplicate_lines(directory_path):
                     if line not in unique_lines:
                         # Add the unique line to the output list
                         output_lines.append(line)
+
                         # Mark the line as seen
                         unique_lines.add(line)
 
@@ -258,22 +334,75 @@ def remove_duplicate_lines(directory_path):
                     output_file.writelines(output_lines)
 
                 # Calculate and print the number of duplicate lines removed
-                removed_lines = len(lines) - len(output_lines)
-                if removed_lines > 0:
-                    print(f"In file {file_path}, total removed lines: {removed_lines}")
+                total_duplicates = len(lines) - len(output_lines)
+
+            # Handle any errors that arise while processing the file
 
             except Exception as e:
-                # Handle any errors that arise while processing the file
                 print(f"An error occurred processing {file_path}: {str(e)}")
 
+    return total_duplicates
 
+
+# Remove Errors - Goes through all files to remove lines with invalid data
+def remove_errors(directory_path):
+    # Expression for valid lines
+    valid_pattern = re.compile(r'^[^:]+@[^:]+:[^:]+$')
+
+    # Expression for lines that have a ";" instead of a ":"
+    semi_colon_pattern = re.compile(r'^[^;]+@[^;]+;[^;]+$')
+
+    # Total number of errors and the invalid lines
+    total_errors = 0
+    erroneous_lines = []
+
+    # Walk through the directory
+    for foldername, subfolders, filenames in os.walk(directory_path):
+        for filename in filenames:
+            file_path = os.path.join(foldername, filename)
+
+            # Read and process each file
+            try:
+                with open(file_path, 'r', encoding="iso-8859-1") as file:
+                    lines = file.readlines()
+            except Exception as e:
+                return f"Error reading file {file_path}: {str(e)}"
+
+            # Filter out invalid lines and keep track of them
+            valid_lines = []
+            for line in lines:
+                stripped_line = line.strip()
+                if valid_pattern.match(stripped_line):
+                    valid_lines.append(line)
+
+                elif semi_colon_pattern.match(stripped_line):
+                    # Convert the ';' to ':'
+                    corrected_line = stripped_line.replace(";", ":")
+                    valid_lines.append(corrected_line + "\n")
+
+                else:
+                    total_errors += 1
+                    erroneous_lines.append(line)
+
+            # Write back only valid lines to the file
+            try:
+                with open(file_path, 'w', encoding="iso-8859-1") as file:
+                    file.writelines(valid_lines)
+            except Exception as e:
+                return f"Error writing to file {file_path}: {str(e)}"
+
+    # Write erroneous lines to a new file
+    try:
+        with open(os.path.join(directory_path, 'errors.txt'), 'w', encoding="iso-8859-1") as err_file:
+            err_file.writelines(erroneous_lines)
+    except Exception as e:
+        return f"Error writing to errors.txt: {str(e)}"
+
+    return total_errors
+
+
+# Display Statistics - total number of email records, unique emails, and the top 10 domain handles
 def display_stats(directory_path):
-    """
-    Statistics include the total number of email records, the count of unique emails, and the top 10 domain handles
-
-    directory_path: Path to the directory containing files to be analyzed.
-    """
-
     # Initialize data structures for storing unique emails and counts for each domain handle
     unique_emails = set()
     domain_handles = {}
@@ -286,42 +415,119 @@ def display_stats(directory_path):
             filepath = os.path.join(dirpath, filename)
 
             # Open the current file for reading
-            with open(filepath, 'r', encoding="utf-8") as f:
+            with open(filepath, 'r', encoding="iso-8859-1") as f:
                 for line in f:
                     # Extract email and domain handle using regex
                     match = re.search(r'(\S+)@(\S+):', line)
                     if match:
                         email, domain = match.groups()
+
                         # Track the unique email addresses
                         unique_emails.add(email)
+
                         # Update the domain handle counts
                         if domain in domain_handles:
                             domain_handles[domain] += 1
                         else:
                             domain_handles[domain] = 1
+
                         # Increment the total records for each matched email
                         total_records += 1
 
     # Display the gathered statistics
-    print("Total Records Found:", total_records)
-    print("Unique Emails:", len(unique_emails))
-    print("\nTop 10 Domain Handles:")
+    print("\033[92m\nTotal Records:\033[0m", total_records)
+    print("\033[93mUnique Emails:\033[0m", len(unique_emails))
+    print("\033[95m\nTop 10 Domain Handles:\033[0m")
+
     # Sort domain handles by count and display the top 10
     for domain, count in sorted(domain_handles.items(), key=lambda x: x[1], reverse=True)[:10]:
         print(f"@{domain}: {count}")
 
 
+# Record Lines & Names - Outputs all the breach names and records (For use in Excel)
+def record_lines_names(directory):
+    # Lists to store breach names (without extension) and their record counts
+    file_names = []
+    record_counts = []
+
+    # Walk through the directory
+    for foldername, subfolders, filenames in os.walk(directory):
+        for filename in filenames:
+            file_path = os.path.join(foldername, filename)
+
+            # Extract filename without extension
+            file_name_without_ext = os.path.splitext(filename)[0]
+            file_names.append(file_name_without_ext)
+
+            # Count the number of lines (records) in the file
+            with open(file_path, 'r', encoding="iso-8859-1") as file:
+                record_count = sum(1 for line in file)
+                record_counts.append(record_count)
+
+    # Create output file
+    output_file_path = os.path.join(directory, "output.txt")
+    with open(output_file_path, 'w', encoding="iso-8859-1") as output_file:
+        output_file.write("Breach Names:\n")
+        for name in file_names:
+            output_file.write(name + "\n")
+
+        output_file.write("\nRecords:\n")
+        for count in record_counts:
+            output_file.write(str(count) + "\n")
+
+    print("\033[92mOutput saved to {}\033[0m".format(output_file_path))
+
+
+def search_data(directory):
+    # Prompt user for email input
+    email_to_search = input("Please enter the email address: ")
+
+    # Counter to track the number of entries found
+    entry_count = 0
+
+    # Walk through the directory
+    for foldername, subfolders, filenames in os.walk(directory):
+        for filename in filenames:
+            file_path = os.path.join(foldername, filename)
+
+            # Open the file and search for the email
+            with open(file_path, 'r', encoding="iso-8859-1") as file:
+                for line in file:
+                    if email_to_search in line:
+                        # Extract email and password
+                        email, password = line.strip().split(":")
+
+                        # Extract filename without extension
+                        file_name_without_ext = os.path.splitext(filename)[0]
+
+                        # Display the results
+                        print("\033[91m\nEmail:\033[0m {}".format(email))
+                        print("\033[91mPassword:\033[0m {}".format(password))
+                        print("\033[93mBreach:\033[0m {}".format(file_name_without_ext))
+
+                        # Increment entry counter
+                        entry_count += 1
+
+    # Display "Total Entries:" with the count in red
+    print("\n\033[91mTotal Entries:\033[0m {}".format(entry_count))
+
+
 def main():
-    valid_choices = ["1", "2", "3", "4", "5", "6", "7"]
+    valid_choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     choice = ""
 
-    while choice != "7":
-        menu()
-        choice = input("Choose an option (1-7): ")
+    # Prompt user to set a directory at the start
+    set_directory_choice = input("Do you want to set a directory once? (yes/no): ").lower().strip()
+    if set_directory_choice == "yes":
+        set_directory()
 
-        # Check if the user's choice is valid
+    while choice != "10":
+        menu()
+        choice = input("Choose an option (1-10): ")
+
+        # Check if choice is valid
         if choice not in valid_choices:
-            print("Invalid choice. Valid options: (1-7)")
+            print("Invalid choice. Valid options: (1-10)")
             continue
 
         # If valid, handle the choice
