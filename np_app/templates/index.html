@@ -1,17 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nole Patrol</title>
-    <script defer src=""></script>
-    <link rel= "stylesheet" href = ""
+    <title>Index</title>
 </head>
+
 <body>
-    <h1>Nole Patrol</h1>
-    <p>Check if you have a data breach.</p>
-    <input type="email" placeholder="email">
-    <button>Submit</button>
+    
+    <h1>FSU data breach lookup tool</h1>
+    
+    <form method="post" action="{% url 'index' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="user_input_btn">Search</button>
+    </form> 
 </body>
+
+<style> 
+    
+    body{
+        background: linear-gradient(0deg, hsla(0, 0%, 0%, 1) 0%, hsla(349, 45%, 33%, 1) 100%);
+        display: flexbox;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 30px;
+        margin: 0;
+        padding: 20px;
+        font-family: "monaco", monospace;
+    }
+
+    h1{
+        color: white;
+        text-align: center;
+    }
+
+    form{
+        margin: 0 auto;
+        max-width: 300px;
+        color: white;
+    }
+
+    input[type="email"]{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .user_input_btn{
+        background-color: #FFFFFF;
+        color: black; 
+        border: 1px;
+        border-radius: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    .user_input_btn:hover{
+        background-color: #FFE1F1;
+    }
+    
+</style>
+
 </html>
