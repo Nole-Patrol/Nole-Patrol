@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Index</title>
+    <title>Home</title>
 </head>
     
 <body>
@@ -18,8 +18,8 @@
     
     <h1>FSU data breach lookup tool</h1>
     <p>There are currently 212,520 Breached FSU emails</p>
+    
     <form>
-   
     <div class="wave-group">
         <input required="" type="text" class="input">
         <span class="bar"></span>
@@ -33,10 +33,14 @@
     </label>
     </div>
 
-    <button>Search</button>
-
+    <button class="search-btn">Search</button>
     </form>
-    
+  
+  <div class="footer">
+    <button class="password-check">Check Your Password</button>
+    <br>
+    <button class="password-gen">Password Generator</button>
+  </div>
 
 </body>
 
@@ -214,7 +218,7 @@ form{
   width: 50%;
 }
 
-button {
+ button {
  appearance: none;
  background-color: transparent;
  border: 0.125em solid #515151;
@@ -245,7 +249,7 @@ button:disabled {
  pointer-events: none;
 }
 
-button:hover {
+ button:hover {
  color: maroon;
  background-color: white;
  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
@@ -258,54 +262,14 @@ button:active {
  transform: translateY(0);
 }
 
-
-
-.footer-clean {
+.footer {
+  display: flex;
+  margin-right: 50px;
+  justify-content: center;
   padding:50px 0;
-  background-color:#fff;
-  color:#4b4c4d;
-}
-
-.footer-clean h3 {
-  margin-top:0;
-  margin-bottom:12px;
-  font-weight:bold;
-  font-size:16px;
-}
-
-.footer-clean ul {
-  padding:0;
-  list-style:none;
-  line-height:1.6;
-  font-size:14px;
-  margin-bottom:0;
-}
-
-.footer-clean ul a {
-  color:inherit;
-  text-decoration:none;
-  opacity:0.8;
-}
-
-.footer-clean ul a:hover {
-  opacity:1;
-}
-
-.footer-clean .item.social {
-  text-align:right;
-}
-
-@media (max-width:767px) {
-  .footer-clean .item {
-    text-align:center;
-    padding-bottom:20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-clean .item.social {
-    text-align:center;
-  }
+  background-color: transparent;
+  color: white;
+  align-items: center;
 }
 
 </style>
