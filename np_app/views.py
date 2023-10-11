@@ -4,6 +4,10 @@ from .forms import EmailSearchForm
 from .models import EmailFile
 
 def index(request):
+    return render(request, 'index.html')
+    
+    #commented out search fnx for now (focusing on UI/UX) -michael
+    """
     if request.method == 'POST': 
         form = EmailSearchForm(request.POST)
         if form.is_valid():
@@ -43,4 +47,4 @@ def index(request):
     
     return render(request, 'index.html', {'form': form})
 
-
+    """
