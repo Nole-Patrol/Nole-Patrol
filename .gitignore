@@ -1,2 +1,2 @@
 #git ignore the emails and passwords in database
-np_app/Database
+./np_app/Database
