@@ -17,7 +17,9 @@
 </div>
     
     <h1>FSU Data Breach Search Engine</h1>
-    <p>There are currently 212,520 Breached FSU emails</p>
+    <div>There are currently</div>
+    <div class="counter"></div>
+    <div>Breached FSU emails</div>
     
     <form>
     <div class="wave-group">
@@ -35,7 +37,7 @@
 
     <button class="search-btn">Search</button>
     </form>
-  
+
   <div class="footer">
     <button class="password-check">Check Your Password</button>
     <br>
@@ -218,7 +220,7 @@ form{
   width: 50%;
 }
 
- button {
+button {
  appearance: none;
  background-color: transparent;
  border: 0.125em solid #515151;
@@ -270,6 +272,39 @@ button:active {
   background-color: transparent;
   color: white;
   align-items: center;
+}
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+div{
+  color: #ddd;
+  text-align: center;
+  font-size: 20px; 
+}
+
+.counter {
+  animation: counter 5s forwards ease-in-out;
+  counter-reset: num var(--num);
+  color: #ddd;
+  text-align: center;
+  font-size: 40px;
+  padding: 10px;
+}
+.counter::after {
+  content: counter(num);
+}
+
+@keyframes counter {
+  from {
+    --num: 0;
+  }
+  to {
+    --num: 212520; 
+  }
 }
 
 </style>
