@@ -13,6 +13,10 @@ class Command(BaseCommand):
         ]
 
         file_paths = []
+        error_emails = []  # List to store emails that were not imported
+        imported_count = 0
+        skipped_count = 0  # To count skipped emails
+
         for directory in data_directories:
             if os.path.isdir(directory):
                 if 'ComboLists' in directory or 'databases' in directory:
@@ -51,13 +55,29 @@ class Command(BaseCommand):
                             email_file_instance.save()
 
                             self.stdout.write(self.style.SUCCESS(f'Successfully imported: {email_file_instance}'))
+                            imported_count += 1
                         else:
                             self.stdout.write(self.style.ERROR(f'Skipped line due to incorrect format: {line.strip()}'))
+                            error_emails.append(line.strip())  # Append error line
+                            skipped_count += 1
+
                     except UnicodeDecodeError:
                         self.stdout.write(self.style.ERROR(f'UnicodeDecodeError in file: {file_path}'))
+                        error_emails.append(f'UnicodeDecodeError in file: {file_path}')
+                        skipped_count += 1
+
+        # Output the count of imported and skipped emails
+        self.stdout.write(self.style.SUCCESS(f'Successfully imported {imported_count} emails.'))
+        self.stdout.write(self.style.WARNING(f'Skipped {skipped_count} emails due to incorrect format or Unicode errors.'))
 
         # Check if any records have been imported into the EmailFile model
         if EmailFile.objects.exists():
             self.stdout.write(self.style.SUCCESS('Data has been imported into the EmailFile model.'))
         else:
             self.stdout.write(self.style.ERROR('No data has been imported into the EmailFile model.'))
+
+        # Output the list of emails that were not imported
+        if error_emails:
+            self.stdout.write(self.style.WARNING('error emails (incorrect format or Unicode errors):'))
+            for email in error_emails:
+                self.stdout.write(email)
