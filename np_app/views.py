@@ -5,8 +5,18 @@ from .models import EmailFile
 
 def index(request):
     return render(request, 'index.html')
-    
-    #commented out search fnx for now (focusing on UI/UX) -michael
+            
+def breaches_page(request):
+    return render(request, 'breaches.html')
+            
+def about_page(request):
+    return render(request, 'about.html')
+
+def notify_page(request):
+    return render(request, 'notify.html')
+ 
+
+#commented out search fnx for now (focusing on UI/UX) -michael
     """
     if request.method == 'POST': 
         form = EmailSearchForm(request.POST)
