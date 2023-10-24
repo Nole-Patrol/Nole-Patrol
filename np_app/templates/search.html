@@ -10,12 +10,16 @@
     {% else %}
         <p>Match found for {{ user_email }} in the following file(s):</p>
         <ul>
-            {% for file in matching_files %}
+            {% for file in matching_records %}
                 <li>{{ file }}</li>
             {% endfor %}
         </ul>
     {% endif %}
 </body>
+
+<div class="footer">
+    <a href="{% url "register" %}">Register</a> | <a href="{% url "login" %}">Log in</a>
+</div>
 
 <style>
   body{

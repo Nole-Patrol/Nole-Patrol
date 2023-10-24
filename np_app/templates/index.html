@@ -6,22 +6,25 @@
     
 <body>
 
-<div class="header">
-  <a class="logo">Nole Patrol</a>
-  <div class="header-right">
-    <a class="active" href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#breaches">Breaches</a>
-    <a href="#notify">Notify Me</a>
+  <div class="header">
+    <a class="logo">Nole Patrol</a>
+    <div class="header-right">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#breaches">Breaches</a>
+      <a href="#notify">Notify Me</a>
+      <a href="{% url "register" %}">Register</a>
+      <a href="{% url "login" %}">Log in</a>
+    </div>
   </div>
-</div>
     
     <h1>FSU data breach lookup tool</h1>
     <p>There are currently 212,520 Breached FSU emails</p>
     
-    <form>
+    <form method="POST" action="">
+      {% csrf_token %}
     <div class="wave-group">
-        <input required="" type="text" class="input">
+      <input required="" type="text" class="input" name="email">
         <span class="bar"></span>
     <label class="label">
         <span class="label-char" style="--index: 0">E</span>
