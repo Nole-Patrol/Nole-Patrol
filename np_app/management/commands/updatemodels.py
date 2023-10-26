@@ -41,13 +41,9 @@ class Command(BaseCommand):
                         if len(fields) == 2:
                             email, password = fields
 
-                            # Check if the email contains the "@" symbol
-                            if "@" in email:
-                                source = email.split('@')[1]
-                            else:
-                                source = "Unknown"  # Handle cases where "@" is missing
+                            file_name_without_extension = os.path.splitext(os.path.basename(file_path))[0]  # Store the filename here
 
-                            email_file_instance = EmailFile(name=email, password=password, source=source)
+                            email_file_instance = EmailFile(name=email, password=password, breach_site=file_name_without_extension)
                             email_file_instance.save()
 
                             self.stdout.write(self.style.SUCCESS(f'Successfully imported: {email_file_instance}'))
