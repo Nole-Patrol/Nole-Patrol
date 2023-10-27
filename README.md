@@ -24,7 +24,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<!--[![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 
 
@@ -32,7 +32,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/michaelsousajr/Nole-Patrol">
-    <img src="static/img/fsuicon.pnglogo.png" alt="Logo" width="80" height="80">
+    <img src="static/img/fsuicon.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Nole Patrol: FSU Data Breach Search Engine</h3>
@@ -84,7 +84,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]<!--(https://example.com)-->
+![Nole-Patrol Screen Shot][product-screenshot]<!--(https://example.com)-->
 
 Students, faculty, staff, and administrators at Florida State University face the risk of data breaches that could leak
 sensitive information including credentials associated with their fsu.edu email addresses and associated accounts. Nole
@@ -218,7 +218,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Nole Patrol Team - <!--[@twitter_handle](https://twitter.com/twitter_handle) - --> email@email_client.com(mailto:email@email_client.com) ( <-- Replace with email Brian created)
+Nole Patrol Team - <!--[@twitter_handle](https://twitter.com/twitter_handle) - --> email@email_client.com ( <-- Replace with email Brian created)
 
 Project Link: [https://github.com/michaelsousajr/Nole-Patrol](https://github.com/michaelsousajr/Nole-Patrol)
 
@@ -247,9 +247,9 @@ Project Link: [https://github.com/michaelsousajr/Nole-Patrol](https://github.com
 [issues-url]: https://github.com/michaelsousajr/Nole-Patrol/issues
 [license-shield]: https://img.shields.io/github/license/michaelsousajr/Nole-Patrol.svg?style=for-the-badge
 [license-url]: https://github.com/michaelsousajr/Nole-Patrol/blob/master/LICENSE.txt
+[product-screenshot]: static/img/screenshot.JPG
 <!--[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: static/img/screenshot.JPG
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
