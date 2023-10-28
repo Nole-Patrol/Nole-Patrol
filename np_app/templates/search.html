@@ -1,3 +1,11 @@
+<!--
+Description: This file is the template for the search page. It is used to
+             display the results of a search query.
+Author(s): Michael Sousa Jr., Caitlin Marie Grimes
+Last Modified Date: 27 October 2023
+Assumptions: N/A
+References: N/A
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +15,11 @@
     <h1>Search Results</h1>
     {% if no_match %}
         <p>No match found</p>
-    {% else %}
+    {% elif user_email %}
         <p>Match found for {{ user_email }} in the following file(s):</p>
         <ul>
-            {% for file in matching_files %}
-                <li>{{ file }}</li>
+            {% for source in sources %}
+                <li>{{ source }}</li>
             {% endfor %}
         </ul>
     {% endif %}
