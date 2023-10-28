@@ -1,9 +1,0 @@
-gillman@scri.fsu.edu:647747a184d35a521c24e04694e0954b
-wsimpson@mailer.fsu.edu:e511d2a36b95626cb9d8abd150dcdb41
-japthorp@mailer.fsu.edu:df9f242490cca45fc7dae6dbe8a802fc
-kklein@mailer.fsu.edu:1a80dcbf0b0b60f45fee4f4dc64e72d7
-gillman@scri.fsu.edu:fc05d4148de3e9959f0ea30661acc07f
-japthorp@mailer.fsu.edu:3b6281fa2ce2b6c20669490ef4b026a4
-wsimpson@mailer.fsu.edu:b937176da86d4bb5f0ac63aaecf540ea
-kklein@mailer.fsu.edu:87831112ee5e9f7272109e12fa23663b
-aya12@my.fsu.edu:f57140ab3350543098472d6f8bb403c806fd6422
