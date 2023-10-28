@@ -16,7 +16,8 @@ References: N/A
     {% if no_match %}
         <p>No match found</p>
     {% elif user_email %}
-        <p>Match found for {{ user_email }} in the following file(s):</p>
+        <h2>Breach Found!</h2>
+        <p>{{ user_email }} compromised from the following source(s):</p>
         <ul>
             {% for source in sources %}
                 <li>{{ source }}</li>
@@ -39,6 +40,11 @@ References: N/A
     }
 
     h1{
+        color: white;
+        text-align: center;
+    }
+
+    h2{
         color: white;
         text-align: center;
     }

@@ -125,15 +125,15 @@ Once you've created and activated your venv, install the following dependencies 
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repo.
    ```sh
    git clone https://github.com/michaelsousajr/Nole-Patrol.git
    ```
-2. Install Django packages
+2. Navigate to the Nole-Patrol directory.
+3. Install Django and relevant packages.
    ```sh
-   python -m pip install Django
+   pip install -r requirements.txt
    ```
-3. Navigate to the Nole-Patrol directory.
 4. Run the following command sequence inside the Nole-Patrol directory to set up the product.
    ```sh
    python manage.py makemigrations
