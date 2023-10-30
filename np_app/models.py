@@ -33,7 +33,6 @@ References: N/A
 '''
 def get_fernet_key():
     return base64.urlsafe_b64encode(hashlib.sha256(SECRET_KEY.encode()).digest())
-
 '''
 Class Name: EmailFile(models.Model)
 Description: This class contains the code to create the EmailFile model. This
@@ -88,3 +87,23 @@ class EmailFile(models.Model):
 
     def __str__(self):
         return self.name
+
+'''
+Class Name: RegisteredUser
+Description: This model represents users who have registered to be notified if their email is found in the breached database. 
+             Each entry in this model corresponds to a unique email address that has either been checked against the database 
+             or has received a breach notification.
+Fields: 
+    - email: A unique email address of the user.
+Methods:
+    - __str__(): Returns the email address of the registered user.
+Author(s): Brian Arango
+Last Modified Date: 30 October 2023
+Assumptions: Each email in this model is unique and corresponds to a single user.
+References: https://docs.djangoproject.com/en/4.2/topics/db/models/
+'''
+class RegisteredUser(models.Model):
+    email = models.EmailField(max_length=255, unique=True)
+    
+    def __str__(self):
+        return self.email
