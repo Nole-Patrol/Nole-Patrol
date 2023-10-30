@@ -68,11 +68,6 @@ purchaseorder@fsu.edu:m0AVG
 asmyth@fsu.edu:7ba40705a7a130ecd87a3f2bbf76c4c5
 ner12@my.fsu.edu:fd03f4c4afcc2b4f1020c55ba4b2a380
 tmm12e@my.fsu.edu:Toxic5
-ys04d@fsu.edu fujitakunn
-ler02@fsu.edu:PBKDF1:sha1:1000:+QHNWIsdkHU=:9thEK/VsECnWa3UZW9+gyfTxzVk=
-cpthomas@fsu.edu:PBKDF1:sha1:1000:BoFrpS01Fyk=:40+3iXLkanCj2B8eUb
-cpthomas@fsu.edu:PBKDF1:sha1:1000:BoFrpS01Fyk=:40+3iXLkanCj2B8eUbPfkYgczWQ=
-pandras@fsu.edu:PBKDF1:sha1:1000:iVqe3KncjTE=:zJvXXwH7OjpK44E4c47n0Le4Prc=
 harrison@eng.fsu.edu:0c52811727dee1c326b21535c47312f7
 whalley@cs.fsu.edu:479956c6d6e8c99117b1032455a22cf1
 chair@cs.fsu.edu:7d3af8b9c43c2cb09a7e10b613b3decc
@@ -83,7 +78,6 @@ gallivan@scs.fsu.edu:e364332870915fc9272ded5412651617
 whalley@cs.fsu.edu:3b2f0c82770a10b1e9ae43f6dc8acbc7
 gavin@cs.fsu.edu:a541a969712e0e6285edb95751430c8b
 whalley@cs.fsu.edu:notvalid
-cjd03f@fsu.edu:cb932198ef8acab20c41137b3cef843b:ab
 jtr07c@fsu.edu:2pacbaka
 mps06c@fsu.edu:weezy1
 njp04c@fsu.edu:mrballaholic
@@ -275,7 +269,6 @@ zeh05@fsu.edu:toothbrush15
 mdb07@fsu.edu:gelmax
 jmw06f@fsu.edu:dog123
 jpa06@fsu.edu:eboniseoul
-tgodwin@admin.fsu.edu:e06de8172543f06ba61bc445bfbefc09:77
 ner12@my.fsu.edu:$H$9nqrykZP8fIXAAFD1RhNAl9DdxpRW70
 dft06@my.fsu.edu:$H$9lwITwvxkzfSwq3cAK8V61i8C6MvnQ/
 cjj08c@my.fsu.edu:$H$9V0n8Z.oy3G4HdnMGQxy3jwIX.shmI.
@@ -2065,7 +2058,6 @@ jsc08c@fsu.edu:junior1
 Hks09@my.fsu.edu:rhinos11
 izb07@fsu.edu:e9e546f99343cdfd036a378a37519014
 aas08c@fsu.edu:73651278f5757fa40b813a8dffb80f0b
-wwager@fsu.edu:dcfca9f37b8f28ba2486d01e9ae2e3dd:69
 farley@bio.fsu.edu:tigger2002
 jas07w@fsu.edu:45572109
 hvl06@my.fsu.edu:analysis
@@ -2127,8 +2119,6 @@ msb03e@fsu.edu:sharmall
 fmb08d@fsu.edu:orihime69
 jsc06@fsu.edu:randalj00
 nlw02@fsu.edu:isgood
-Dap04d@fsu.edu:e25d7706586f6b12fdeb46938e5e7665:78
-arb06@fsu.edu:0747fcaf07b08c9ed12d826ce6c7c086:ba
 gac08@fsu.edu:keyboard25
 jsb11b@my.fsu.edu:3435josh
 jda08c@fsu.edu:fsu9399
@@ -2704,7 +2694,6 @@ nej13@my.fsu.edu:mF4
 ana09@my.fsu.edu:murat12345
 sjo11@my.fsu.edu:ps1425201
 grm10c@my.fsu.edu:kasun444
-mmoody@admin.fsu.edu:a9ffcfb7c8e49274ab422eb019a02e4e:9bMabiWID1fx8ecQx7aUvfeYTnjEGP47
 awf04@fsu.edu:5t6y7u
 ajh12d@my.fsu.edu:hoffman
 ajr09d@fsu.edu:strebor91
@@ -2712,8 +2701,6 @@ sac08@fsu.edu:holycrap1
 da06e@fsu.edu:win12
 ddd09d@my.fsu.edu:ilovetacos
 jcb11c@my.fsu.edu:password
-mh04h@fsu.edu lauchan!
-kh04c@fsu.edu 19781016
 mh04h@fsu.edu:lauchan!
 kh04c@fsu.edu:19781016
 rmb09h@fsu.edu:nikki23
@@ -2758,49 +2745,34 @@ drokyta@bio.fsu.edu:6ERI7sbK
 jhunu@eng.fsu.edu:zwcESp
 dkb12@my.fsu.edu:$S$D.QCWHV5Dxez4Z1soI9pSSOx8MqyU13mCVB65kvBMzZMpwvGlJTq
 louisna@eng.fsu.edu:please
-alg04c@fsu.edu;star1125
-etb07@fsu.edu;eric7349
-jsl09@fsu.edu;password42
-ksj03c@fsu.edu;cynthia1
-cpm10e@my.fsu.edu;Buffalo21
-zmg07@fsu.edu;redrum85
-ch03d@fsu.edu;twitch79
-ljs09@fsu.edu;flamingo2
-kgb10e@my.fsu.edu;Jun3bug!
-jap08h@my.fsu.edu;alan1987
-jrm07f@my.fsu.edu;mntwins3
-reg08f@fsu.edu;pisces05
-cct10c@fsu.edu;buckshot1
-rjg06c@fsu.edu;p4ssword
-elr05@fsu.edu;yourmom13
-lpc09@fsu.edu;chaichi22
-nmosley@mailer.fsu.edu;calcam
-jap02@fsu.edu;jessica
-Agh08@my.fsu.edu;07rubino
-ejs05k@fsu.edu;stetson123
-jcm05g@fsu.edu;mojon0069
-kce05d@fsu.edu;henshin7
-jrb08h@fsu.edu;*tennis01
-nbg03@fsu.edu;nbg7208
-ajb10n@my.fsu.edu;Nascar24!!
-sas06h@fsu.edu;i4kirk62
-sbh09d@my.fsu.edu;Generals1
-far05c@fsu.edu;vaio2001
-ctm06@fsu.edu;6gymnbcp
-dte12@my.fsu.edu;Halo1234+
-rbrittmi@fsu.edu;messal77
-mcondo@fsu.edu;condos05
-lcp07@fsu.edu;frosty11
-dhj06@fsu.edu;iloveyou2
-dpc07@fsu.edu;jedione16
-cm03m@fsu.edu;kristen
-sh09j@fsu.edu;treesrock4
-meh07h@fsu.edu;1lightning1
-mcn04@fsu.edu;montero
-kar09@fsu.edu;acuratl1
-klm09f@fsu.edu;14sports
-ntk02@fsu.edu;nickyk44
-bsd05f@fsu.edu;topdog11
+alg04c@fsu.edu:star1125
+ksj03c@fsu.edu:cynthia1
+cpm10e@my.fsu.edu:Buffalo21
+ch03d@fsu.edu:twitch79
+ljs09@fsu.edu:flamingo2
+kgb10e@my.fsu.edu:Jun3bug!
+jap08h@my.fsu.edu:alan1987
+jrm07f@my.fsu.edu:mntwins3
+reg08f@fsu.edu:pisces05
+cct10c@fsu.edu:buckshot1
+rjg06c@fsu.edu:p4ssword
+elr05@fsu.edu:yourmom13
+lpc09@fsu.edu:chaichi22
+Agh08@my.fsu.edu:07rubino
+ejs05k@fsu.edu:stetson123
+jcm05g@fsu.edu:mojon0069
+jrb08h@fsu.edu:*tennis01
+nbg03@fsu.edu:nbg7208
+sas06h@fsu.edu:i4kirk62
+far05c@fsu.edu:vaio2001
+dte12@my.fsu.edu:Halo1234+
+rbrittmi@fsu.edu:messal77
+lcp07@fsu.edu:frosty11
+dhj06@fsu.edu:iloveyou2
+cm03m@fsu.edu:kristen
+sh09j@fsu.edu:treesrock4
+kar09@fsu.edu:acuratl1
+bsd05f@fsu.edu:topdog11
 slj06f@fsu.edu:meka1101
 mel9871@fsu.edu:414a080ebfcbb6f01ae763cd5489d0c2
 kag09f@fsu.edu:buster09
@@ -2833,7 +2805,6 @@ bkc09@my.fsu.edu:alphabeta
 to12e@my.fsu.edu:buddy747
 ahr09@fsu.edu:Serina_1701
 jjh07c@fsu.edu:mnijtb
-Agh08@my.fsu.edu:07rubino
 clr07e@fsu.edu:lauren88
 aps06@fsu.edu:aszaf411
 herstmi@eng.fsu.edu:dinosaur
@@ -2874,14 +2845,6 @@ jgwartne@coss.fsu.edu:plant
 mfair@fsu.edu:buddykase
 rstrazulla@fsu.edu:123straz
 bivey@fsu.edu:money-33
-jgwartne@coss.fsu.edu:e44792b12d8a0ce97786828368e32fd4:9e
-rstrazulla@fsu.edu:f45b9395060c982c3ff4e8333c4df851:92
-alw10d@my.fsu.edu:ec9f4abeb3ccc7ffc09747f87bdd6396:6d
-ewatt@fsu.edu:f147df420f67a11967d45b38792a09b7:a6
-Mhester@fsu.edu:24d4a65ae4df1ea9b0124d21a9944075:57
-vshackelford@fsu.edu:dc2c4bb7d514f71484caba4bec6d56c5:2e
-jstinchfield@admin.fsu.edu:5f6df5e0837ae392d9c6b5889df6ac9c:cf
-seb07c@my.fsu.edu:11e5226a7415868f66496c0548bdb190:06
 zzzzz-alexande@cs.fsu.edu:wombat
 alexande@cs.fsu.edu:wombat
 cougle@psy.fsu.edu:ju8Hv8
@@ -2891,7 +2854,6 @@ joiner@psy.fsu.edu:1zr1N9
 hagan@psy.fsu.edu:vqgqu7
 kcc04c@fsu.edu:DOMINO0
 cab02k@fsu.edu:CABBY9
-!jlm911@fsu.edu.:
 ttd08c@fsu.edu:tamdinh83
 dkb12@my.fsu.edu:$S$DbjBWpdAB.7jg76SuMSQltKsKHBTkF.8oyz2vLcWusnJqwOXXgjl
 acm07c@my.fsu.edu:xxeqsk9
@@ -3065,7 +3027,6 @@ ajs04n@my.fsu.edu:august21
 ar06@fsu.edu:pakistan1
 ecb04@fsu.edu:openup-
 Jcc05f@fsu.edu:bones279
-cm03m@fsu.edu:kristen
 rrm05@fsu.edu:ifarted1
 rmf04d@fsu.edu:iloveabi3
 bjh03@fsu.edu:leperd
@@ -3084,7 +3045,6 @@ mdr02h@fsu.edu:option30
 nlh08@fsu.edu:samson1428
 jf10c@my.fsu.edu:bonzaiman
 jat08@my.fsu.edu:rebecca25
-tmp08c@my.fsu.edu;Maggie1
 cm03m1@fsu.edu:kristen
 cm03m777@fsu.edu:kristen
 cmm123@fsu.edu:kristen
@@ -3117,16 +3077,16 @@ rjj06@fsu.edu:hok4life
 kmf02g@fsu.edu:kings0
 asr03@fsu.edu:dubbaneah
 arl08e@my.fsu.edu:twelve25
-blh10g@my.fsu.edu;be1schmitt1
-jlw03k@fsu.edu;kyrah*
+blh10g@my.fsu.edu:be1schmitt1
+jlw03k@fsu.edu:kyrah*
 raf11@fsu.edu:4y44c2xc4
 lmg07c@my.fsu.edu:mjolnir13
-ntl09c@my.fsu.edu;mememe123
-jrb13u@my.fsu.edu;supersmashbros2
-lkl09@my.fsu.edu;lazarus9
+ntl09c@my.fsu.edu:mememe123
+jrb13u@my.fsu.edu:supersmashbros2
+lkl09@my.fsu.edu:lazarus9
 mpv06c@fsu.edu:middlebury1
 gl12b@my.fsu.edu:jokes000
-tsg33@my.fsu.edu;availing
+tsg33@my.fsu.edu:availing
 ns09h@my.fsu.edu:basspro
 asa05f@fsu.edu:good
 jkt08@my.fsu.edu:apple4444
@@ -3152,7 +3112,6 @@ jfl12b@my.fsu.edu:4X6mPHag
 tjs13h@my.fsu.edu:4M7mVRaz
 jsm13e@my.fsu.edu:4LFWUC43
 gc11n@my.fsu.edu:hZ2bWpWM
-pph07@fsu.edu:cfdcee53746190f6bf75931ba1d770f2:2xRv86Syo63jgqaM
 mc08k@my.fsu.edu:16770842f69698f970f40fcab14d4ba5
 kf10h@my.fsu.edu:93aceb
 hpark@nursing.fsu.edu:*CAF07D1CE5E369C8378BCA9B39AF250BF4BA2E26
@@ -3243,30 +3202,9 @@ trm02@fsu.edu:9fb7fbedb95269e6557ee6343a73d09a
 dft06@my.fsu.edu:fd03f4c4afcc2b4f1020c55ba4b2a380
 cjj08c@my.fsu.edu:fd03f4c4afcc2b4f1020c55ba4b2a380
 lvinton@fsu.edu:fe00e9033b5085809505c6684545e6d4
-nbm07@med.fsu.edu:b5f8450aafe2f4d350c2a534bfc286af:6e
-ans03f@fsu.edu:9e438e518ab8cef2bf6e660f77ed275e:7f
 rjz05@my.fsu.edu:D55D3C72FDBF9F0CE64628342ADEA571D240E264
 amg09c@my.fsu.edu:$H$9dROXhsMSX/UpjK7aT2jF1MmoT2ygx/
 ner12@my.fsu.edu:$H$9NLf/Hoab0M2jqHVvLcGnF5dmfd/Xb1
-Braverman@magnet.fsu.edu:f0343887f40241bb122db2da3d5b3ca7:f2
-jag06f@fsu.edu:9355888012407d06b644b75a91f00dee:4d
-jlb07h@fsu.edu:009db045b44c94d146a9d7243959baeb:b6
-ask03d@fsu.edu:29a556daddae856db1ff9cb98e73211b:e9
-eb08@fsu.edu:99060878e777604d7efd2f30c009b898:c8
-Taw06d@fsu.edu:10318970acd1f4e3077773880e480393:8d
-sem06h@fsu.edu:382d8f89cca4c5c06dd8dc3e88a54fe2:76
-iglesiasa@neuro.fsu.edu:71097226d3e49985c12d231cbb287a14:2a
-dsale@fsu.edu:0fe35f7fdbe3b32e0627882e833c955e:c9
-jv11@my.fsu.edu:ddbdaf82a20bfe84d30bcec598b02037:51
-dsm07c@fsu.edu:ed3d2c21991e3bef5e069713af9fa6ca:98
-cth10@fsu.edu:b34adfd5e0ff5d034f15bcd31412d4bc:21
-jajohnson@admin.fsu.edu:c467a926202625be53163e200463443e:5f
-dms10e@med.fsu.edu:528953727ef3a4e1c441c6078534c39b:b6
-Sss6111@my.fsu.edu:31e85368fd9dc85a16a410072c8a9fe6:f1
-Bla08@my.fsu.edu:2d917f5d1275e96fd75e6352e26b1387:fe
-eas06f@my.fsu.edu:d6c8734a8675b28af4fdc29fb07ced69:78
-cmm05c@my.fsu.edu:d8708ecb9a1e7ba172c83d8360c57e7d:b7
-rto06@my.fsu.edu:cae8a623cc417d219936676028e26d4f:f0
 ejs05d@fsu.edu:5bc9c1de6f818562e69232ba07418525
 src12@my.fsu.edu:G6xqFYDjcfbBx+ljyLihLDnGiACRbkP1cZtasfJWXL8=
 jlg06h@my.fsu.edu:1acCnuRzMtNvTg3gEYHhkpRByR9JyEn9iIkzAOk0J88=
@@ -3356,7 +3294,6 @@ cward@english.fsu.edu:195662
 mam7421@fsu.edu:BETHESDA
 ewalker@fsu.edu:lycoris
 krm11e@my.fsu.edu:annie111
-mmoody@admin.fsu.edu:d2495aad55adeb54bd1bff4bec4ea3c5:h4t9Bsono3joyxsJheu4xBVIyyIZ0uMM
 klm10d@my.fsu.edu:e3090a1ce5d018aba4920a57b122bf17
 naw04@fsu.edu:3376db02fba859a90d6fc4e2808197c8
 arg06c@fsu.edu:a2409af875fb43891a8f33b1f2e55e86
@@ -3400,7 +3337,6 @@ ken03e@fsu.edu:kathy
 klr04f@fsu.edu:antbffe
 rje07@fsu.edu:123456
 jtj04c@fsu.edu:jesus#3
-dhj06@fsu.edu:iloveyou2
 anl09c@fsu.edu:noodle1
 ljw05e@fsu.edu:lover123
 ted06@fsu.edu:1snook
@@ -3500,7 +3436,6 @@ mjc03e@fsu.edu:aa6ee2d33293f388baf9d3727623c37a
 ALK02G@fsu.edu:1251dc4e332c5a6e
 bsa05@fsu.edu:7baa67c1299fc999
 hjohnson@pc.fsu.edu:d47bcbba289fd6c87909c7473c4a1e8a
-cfahey@campus.fsu.edu
 ramalsi@eng.fsu.edu:nitai18
 kjf08@my.fsu.edu:fd03f4c4afcc2b4f1020c55ba4b2a380
 schrader@fsu.edu:4fbfdf5944c258d0dad9306764d9134f
@@ -3710,7 +3645,6 @@ fitch@neuro.fsu.edu:imcp99
 lfowler@fsu.edu:adam#88
 cwhite@bio.fsu.edu:!Molly12
 pmcphadden@bio.fsu.edu:King2065
-cmelton@otc.fsu.edu:
 nav04@fsu.edu:9d471ac6ecaedb43366360ee33df8618
 ank09@fsu.edu:8636f42ef8f1123779e9a2f3c67c1e9d684f0347
 sdyang@scs.fsu.edu:urbest0407
@@ -3990,7 +3924,6 @@ sml07c@fsu.edu:sinnfein
 cgw12c@my.fsu.edu:Irish1994
 bmg6476@fsu.edu:royaltrux
 cdc11d@my.fsu.edu:madison1417
-jap08h@my.fsu.edu:alan1987
 ccv11@my.fsu.edu:cc070193
 tnp12@my.fsu.edu:northeast
 bblanar@fsu.edu:design3
@@ -4014,7 +3947,6 @@ jpg09e@fsu.edu:ssddss
 mrw10@my.fsu.edu:connelly1
 nrp10c@fsu.edu:chernobyl
 mag12f@my.fsu.edu:muggsy
-jrm07f@my.fsu.edu:mntwins3
 smt09f@my.fsu.edu:darthmaul
 awc06c@fsu.edu:looper
 pms07c@fsu.edu:byakko
@@ -4058,7 +3990,6 @@ ask03d@fsu.edu:jaguars
 jrtaylor@fsu.edu:clipper
 sak08@my.fsu.edu:maddie12
 wpe13@my.fsu.edu:willgeor
-acevans@met.fsu.edu:
 ask03d@fsu.edu:11IbG6swGXfqM
 acevans@met.fsu.edu:10On5mAXW/s5s
 jmb03m@fsu.edu:12WGsjHTM5S6Y
@@ -4136,7 +4067,6 @@ jlw11h@my.fsu.edu:Yoohoo12
 gwh13@my.fsu.edu:garrett11
 kg14n@my.fsu.edu:bballin23
 zts12@my.fsu.edu:adaline1
-cct10c@fsu.edu:buckshot1
 mlm09k@my.fsu.edu:030618
 mtw11b@my.fsu.edu:ilovemary
 cac12d@my.fsu.edu:082694
@@ -4186,22 +4116,14 @@ brc09c@my.fsu.edu:brookie22
 jc06g@my.fsu.edu:movingon22
 eld08e@my.fsu.edu:r1CHARD8
 jdurdle@nursing.fsu.edu:jubien
-kjf08@my.fsu.edu
 vanepps@cs.fsu.edu:hamster
 judiemul@cs.fsu.edu:S0gnarf
 henry@cs.fsu.edu:sn999t
 semets@chem.fsu.edu:minotavr1
 cgreek@mailer.fsu.edu:AlxsAsp
 dtrumbower@fsu.edu:$P$DoDn4X5XOs/nvZgu8IXrT.LTy4HlCV.
-jaa9570@garnet.fsu.edu:
-gthompsn@coss.fsu.edu:
-ltaylor@admin.fsu.edu:
-pfulkerson@foundation.fsu.edu:
 sprague@cs.fsu.edu:lt+lNcK7lLQCwgRT9FcqsA
 badams@alumni.fsu.edu:seRHJiIo2rws2SrH0vu9BA
-jbuatama@law.fsu.edu:
-jbruno@mailer.fsu.edu:
-tsass@coss.fsu.edu:
 mcdoolittle@fsu.edu:sandhog
 crv07@fsu.edu:ripcurl
 jat7883@fsu.edu:1girlfriend
@@ -4415,7 +4337,6 @@ rls03c@fsu.edu:firebird
 sir02c@fsu.edu:rosin
 sks07e@fsu.edu:evil
 dbh02@fsu.edu:mrluther
-sas06h@fsu.edu:i4kirk62
 mjk06k@fsu.edu:t77733
 mte03@fsu.edu:tlmtje
 jsl06c@fsu.edu:lol
@@ -4477,8 +4398,6 @@ cjr12f@my.fsu.edu:Aue8Q302846630484565
 jlm02u@fsu.edu:zGaG7U
 faye.brown@med.fsu.edu:9QQTRe
 gs11e@my.fsu.edu:FF4ZjGFgBW
-FAK05@fsu.edu:2014-08-17 10:24:06
-sjv11b@my.fsu.edu:2015-05-13 16:41:27
 hcatts@fsu.edu:password
 lscott@fsu.edu:password
 lisa.scott@cci.fsu.edu:ftjsc#54
@@ -4529,7 +4448,6 @@ mam08u@fsu.edu:tennis123
 rfb7932@fsu.edu:wxman1848
 kck04@fsu.edu:bently8
 kck04@fsu.edu:kyky1985
-rba06@fsu.edu:
 mah06g@fsu.edu:toodles
 kmz03@fsu.edu:munchkin
 lef03@fsu.edu:Tampa
@@ -4559,30 +4477,6 @@ cja10d@my.fsu.edu:jakeman1
 wwm9944@fsu.edu:daviclo5
 dee06@fsu.edu:djdiablo8816
 bbh07@fsu.edu:lyman
-kwilliamson@nursing.fsu.edu will12ie
-ljr05@fsu.edu tinker14
-lkr05c@fsu.edu lkr!7760
-mjs02m@fsu.edu mightymage
-mmt05@fsu.edu nolefann
-mwb07c@fsu.edu NVaSHPMy
-nlw02@fsu.edu bob4bobdole
-nnn03@fsu.edu Bubba2457
-nsn03@fsu.edu bubba2457
-okoro@eng.fsu.edu chikatoo
-pragnesh.parikh@med.fsu.edu lilpig=)
-puentca@eng.fsu.edu amalu130
-randa.perkins@med.fsu.edu thereby67
-Robert.Campbell@med.fsu.edu kobioshi
-sac0191@med.fsu.edu yfcub=54
-sadler@psy.fsu.edu i9seThon
-sfuqua@fsu.edu magnet24
-ssoriano@admin.fsu.edu ilvcraw$
-Suzanne.Nagy@med.fsu.edu shalimar
-todsmith@mailer.fsu.edu noahmcphie
-tte07@fsu.edu peaches08
-wulff@bio.fsu.edu porifera
-yp04c@garnet.fsu.edu rachel#1
 mmoody@admin.fsu.edu:a9ffcfb7c8e49274ab422eb019a02e4e
 jab07f@fsu.edu:b5e02e4775c11941e8c9f940b089110d
 ajr09d@fsu.edu:f3a1466458091ad5bdd01e5a135117d6
-jab07f@fsu.edu:b5e02e4775c11941e8c9f940b089110d:40b
