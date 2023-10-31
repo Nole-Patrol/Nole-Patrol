@@ -1,0 +1,9 @@
+asgiref==3.7.2
+cffi==1.16.0
+cryptography==41.0.5
+Django==4.2.6
+pycparser==2.21
+pyprog==1.1.0.post2
+sqlparse==0.4.4
+typing_extensions==4.8.0
+tzdata==2023.3
