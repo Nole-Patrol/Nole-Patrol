@@ -33,6 +33,7 @@ References: N/A
 '''
 def get_fernet_key():
     return base64.urlsafe_b64encode(hashlib.sha256(SECRET_KEY.encode()).digest())
+    
 '''
 Class Name: EmailFile(models.Model)
 Description: This class contains the code to create the EmailFile model. This
