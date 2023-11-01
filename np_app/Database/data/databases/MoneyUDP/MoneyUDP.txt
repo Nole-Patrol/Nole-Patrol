@@ -65,7 +65,7 @@ levitz@cs.fsu.edu:linusd
 arg04d@fsu.edu:rebekah
 hvl06@my.fsu.edu:mercSuey
 jat08@my.fsu.edu:rebecca25
-tmp08c@my.fsu.edu;Maggie1
+tmp08c@my.fsu.edu:Maggie1
 cm03m1@fsu.edu:kristen
 cm03m777@fsu.edu:kristen
 cmm123@fsu.edu:kristen
