@@ -43,7 +43,7 @@ class Command(BaseCommand):
                     cards.append(template.render(data))
 
             with open('np_app/templates/breach_cards.html', 'r+') as file:
-                contents = file.readlines()
+                contents = []
                 # Insert cards into file.
                 i = 0
                 while i < len(cards):
