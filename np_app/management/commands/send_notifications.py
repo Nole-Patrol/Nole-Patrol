@@ -24,11 +24,11 @@ References:
     - https://docs.djangoproject.com/en/4.2/topics/email/
 '''
 def send_notification_emails(user, new_breach_sources):
-    #print(user)
-    #print(new_breach_sources)
+    # If no new breaches are found, print a message to the console and return.
     if len(new_breach_sources) == 0:
         print('No new breaches found for ' + user.email)
         return
+    # If new breaches are found, send a notification email.
     else:
         print('Sending notification email to ' + user.email)
         # Create a message with the new breach sources.

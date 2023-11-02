@@ -27,8 +27,6 @@ References: N/A
 <form method="post" action="{% url 'signup' %}">
     {% csrf_token %}
     <div class="wave-group">
-        <input required="" type="text" class="input" name="email">
-        <span class="bar"></span>
         <label class="label">
             <span class="label-char" style="--index: 0">E</span>
             <span class="label-char" style="--index: 1">m</span>
@@ -36,6 +34,8 @@ References: N/A
             <span class="label-char" style="--index: 3">i</span>
             <span class="label-char" style="--index: 4">l</span>
         </label>
+        <input required="" type="text" class="input" name="email">
+        <span class="bar"></span>
     </div>
     <button class="search-btn">Notify Me</button>
 </form>
