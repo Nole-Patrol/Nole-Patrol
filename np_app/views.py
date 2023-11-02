@@ -9,7 +9,10 @@ References: https://docs.djangoproject.com/en/4.2/topics/http/views/
 import os
 from django.shortcuts import render
 from .forms import EmailSearchForm
-from .models import EmailFile
+from .models import EmailFile, RegisteredUser
+from django.core.mail import send_mail
+from django.conf import settings
+from django.http import HttpResponseRedirect
 
 '''
 Function Name: index(request)
@@ -59,9 +62,59 @@ def breaches_page(request):
 def about_page(request):
     return render(request, 'about.html')
 
+'''
+Function Name: notify_page(request)
+Description: This function handles the process of notifying users if their email is found in the breached 
+             database. On a POST request, it checks the EmailFile model for the provided email. If found,
+             it sends a breach notification to the user's email. Additionally, the email is saved in the
+             RegisteredUser model if not already present. After processing, it redirects to a success page.
+             It also sends a thank you email as a confirmation, useful for testing purposes.
+Parameters: request
+Return Value: HTTPResponse
+Author(s): Brian Arango
+Last Modified Date: 30 October 2023
+Assumptions: The EmailFile model contains emails from breached databases. The RegisteredUser model saves 
+             users who have been notified.
+References: https://docs.djangoproject.com/en/4.2/ref/request-response/, 
+            https://docs.djangoproject.com/en/4.2/topics/email/#
+'''
 def notify_page(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        
+        # Check if the email exists in the EmailFile model.
+        exists_in_breach = EmailFile.objects.filter(name=email).exists()
+        
+        # If it exists in the breach, send a notification email to the user.
+        if exists_in_breach:
+            send_mail(
+                'Breach Notification',
+                'Your email has been found in our database of breached emails.',
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
+        
+        # Save the email in the RegisteredUser model if it's not already there.
+        registered_user, created = RegisteredUser.objects.get_or_create(email=email)
+        
+        # If the user is newly registered (i.e., email was just added), send a thank you email.
+        if created:
+            send_mail(
+                'Thank You for Signing Up',
+                'Thank you for registering for email breach notifications. We will notify you if your email is found in any future breaches.',
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
+        
+        # Redirect to a success page or display a success message (based on your design).
+        return HttpResponseRedirect('/success/')  # Change this URL based on your design.
+
     return render(request, 'notify.html')
  
+def success_view(request):
+    return render(request, 'success.html')
 
 #commented out search fnx for now (focusing on UI/UX) -michael
     """

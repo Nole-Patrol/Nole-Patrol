@@ -42,7 +42,6 @@ rcc08@fsu.edu:yosem1te
 amw07j@fsu.edu:lowell10
 bcl09@fsu.edu:abc1234
 eba07@fsu.edu:*nie88
-bjc08@fsu.edu:
 brb08f@fsu.edu:1012345
 res06e@fsu.edu:dndil4
 jlg06h@fsu.edu:warhammer
@@ -124,20 +123,17 @@ ttw08c@fsu.edu:johnny16
 das08@fsu.edu:catch22
 jbb05h@fsu.edu:josh38
 kgt07@fsu.edu:pimperman
-mhl05@fsu.edu:
 bcw07@fsu.edu:amanda
 em09j@fsu.edu:2001f-150
 woodjo@eng.fsu.edu:jester
 msk07c@fsu.edu:sempier
 zds07@fsu.edu:kloper21
-jts06g@fsu.edu:
 jeh08f@fsu.edu:joshua
 kkt08@fsu.edu:Pocket21
 cg06@my.fsu.edu:cheese
 maf06f@fsu.edu:matt2626
 tlt05c@fsu.edu:tlt419
 dlc06c@fsu.edu:samantha
-cgk07c@fsu.edu:
 mcm08n@my.fsu.edu:4.6ltrgt
 dwk03@fsu.edu:killer
 ccb3035@fsu.edu:SNOWBOY
@@ -182,7 +178,6 @@ dcs08@fsu.edu:samsonite
 mbarbour@pc.fsu.edu:Mikeiei0
 kmg07g@fsu.edu:livinthedream!
 dcr06c@fsu.edu:fuckoff1
-mas06h@fsu.edu:
 tbr11@my.fsu.edu:gocolts18
 cats@fsu.edu:henny456
 tdusek@chem.fsu.edu:florida2010
@@ -244,7 +239,6 @@ jjc03j@fsu.edu:kramer
 ibc05@fsu.edu:06061592
 jh13s@my.fsu.edu:Joeyyy123
 jjt05@fsu.edu:cayette
-jrm06c@fsu.edu:
 nrr07c@fsu.edu:skippy
 aja09f@fsu.edu:f2c8wfcdw
 slc04c@fsu.edu:jasph3lp$
@@ -297,7 +291,6 @@ jee08@fsu.edu:go2gym
 scragma@eng.fsu.edu:dexter-12
 ams09r@fsu.edu:pebbies3
 sdw06f@fsu.edu:171717
-whd09@fsu.edu:asdfjkl;
 fm11f@my.fsu.edu:cypressbay
 clct1234@fsu.edu:digme2
 ajm03m@fsu.edu:pharmd11

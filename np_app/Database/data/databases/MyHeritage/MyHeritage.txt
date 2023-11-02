@@ -328,7 +328,6 @@ wch07d@fsu.edu:snarls
 sew07s@fsu.edu:bkhs07
 ram08d@fsu.edu:acceb1
 jk07k@fsu.edu:jamiek
-sdf@fsu.edu:asdfjkl;
 kplatko@fsu.edu:kelly92191
 jlp09g@fsu.edu:262501
 mga09c@fsu.edu:ugh11
@@ -1635,7 +1634,6 @@ jaa06f@garnet.fsu.edu:jonny5
 sschuetz@fsu.edu:jellyfish
 ipc05@fsu.edu:noles27
 zrb06@fsu.edu:coronado1
-ler04@fsu.edu:justin;
 cfb05@fsu.edu:dothan1
 wgt02@fsu.edu:fireofgod
 aej02e@fsu.edu:sunset
@@ -2881,7 +2879,6 @@ lec3613@fsu.edu:tikkilucy
 sas05h@fsu.edu:20117503
 jwb05@fsu.edu:lar0428
 amh03d@fsu.edu:abby39
-msm12e@my.fsu.edu:&hearts;1
 mal06h@fsu.edu:qpalzm
 ebettilyon@admin.fsu.edu:william
 egray@mailer.fsu.edu:paris
