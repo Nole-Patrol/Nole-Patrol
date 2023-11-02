@@ -6,11 +6,12 @@ Assumptions: N/A
 References: https://docs.djangoproject.com/en/4.2/ref/urls/
 '''
 from django.urls import path
-from . import views
+from .views import index, breaches_page, about_page, notify_page, success_view
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('breaches/', views.breaches_page, name='breaches'),
-    path('about/', views.about_page, name='about'),
-    path('notify/', views.notify_page, name='notify'),
+    path('', index, name='index'),
+    path('breaches/', breaches_page, name='breaches'),
+    path('about/', about_page, name='about'),
+    path('notify/', notify_page, name='signup'),
+    path('success/', success_view, name='success'),
 ]
