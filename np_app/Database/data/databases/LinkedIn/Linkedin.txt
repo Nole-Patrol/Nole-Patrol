@@ -665,7 +665,6 @@ mmb08c@my.fsu.edu:iloveyou4
 jia@eng.fsu.edu:danielz
 jwm08c@fsu.edu:apples
 kc09e@fsu.edu:kcroc27
-vandeburgt@chem.fsu.edu:sarah;16
 ajb09e@fsu.edu:dangerous
 mea04e@fsu.edu:b3rchmans
 telotte@eng.fsu.edu:sestak*

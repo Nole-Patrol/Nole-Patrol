@@ -7,7 +7,6 @@ jrb06s@fsu.edu:jbuttz02
 bthomps@fsu.edu:726c0d7980cd775e1138d0961edeff04
 bthomps@fsu.edu:5e407cec6180fc1c29c0e08916823435
 mrf06e@fsu.edu:gspikes28
-wcw05@fsu.edu:webbyw:Permit7
 hjw12b@my.fsu.edu:jalire6687
 parmer@psy.fsu.edu:eeyore
 jad7063@fsu.edu:west3030
@@ -62,7 +61,6 @@ lmb09d@fsu.edu:wishes
 daa08c@fsu.edu:changeme
 els07@fsu.edu:4vpfy6
 cjr09g@fsu.edu:megadeth
-mhschnei@bio.fsu.edu
 atd14@my.fsu.edu:plasmaopai
 art02c@fsu.edu:viper02
 egs09@my.fsu.edu:3emily
@@ -75,7 +73,6 @@ wolfgang@coe.fsu.edu:sandi!
 kac06m@fsu.edu:money$$
 maugustyniak@fsu.edu:chantilly
 rrubanow@fsu.edu:xc1u0w3
-bcm02@fsu.edu:BCasey02M:password
 pas11g@my.fsu.edu:ambassadors
 tby10@my.fsu.edu:ambassadors
 ccr08c@my.fsu.edu:ambassadors
@@ -127,7 +124,6 @@ eeb10d@my.fsu.edu:cottage1
 mdc04j@fsu.edu:saitek
 bwv04@fsu.edu:hardaway
 ajh12c@my.fsu.edu:1Mariah*
-cezztest@fsu.edu 3dmapte$t
 cmg03c@fsu.edu:peaches
 dns04@fsu.edu:01262189
 emw02c@fsu.edu:mawie81!
@@ -149,7 +145,6 @@ mw11n@my.fsu.edu:Cameron3318
 pkeyser@fsu.edu:ambassadors
 zsw11@my.fsu.edu:logitechg7
 xin@magnet.fsu.edu:FshTWgRh
-rjt12@my.fsu.edu:diamondsr8:PREMIUM
 dau11@my.fsu.edu:greentea9
 af13b@my.fsu.edu:Lennon1!
 mcs16c@my.fsu.edu:Shankers!01
@@ -159,7 +154,6 @@ cmj11c@my.fsu.edu:like2cook
 bthomps@fsu.edu:jake007
 dfunk@fsu.edu:sardisroad
 jjj04d@fsu.edu:030586jjj
-pkeyser@fsu.edu:ambassadors:giveaway:
 pkeyser@fsu.edu:quiet
 kmm08d@my.fsu.edu:ukmp708u*
 cs08m@fsu.edu:hunnybee
@@ -168,7 +162,6 @@ cg13h@my.fsu.edu:catwoman31
 ejs05k@fsu.edu:stetson123
 jab03j@fsu.edu:0acd82
 wsb07d@fsu.edu:beerfest06
-mkk5306@fsu.edu:1041d91cb43afbf141c92879649c3827:MiE
 henryf@gly.fsu.edu:henryf
 haddock@bio.fsu.edu:chemical
 james.olcese@med.fsu.edu:hamburg2004
@@ -300,7 +293,6 @@ awy09@my.fsu.edu:ironman247
 rto06@fsu.edu:magic1sg0d
 cbm08c@my.fsu.edu:Cam468255$
 mas08s@my.fsu.edu:mashrou3dummar
-beerli@fsu.edu:9eb0c643a4a12eb31a10d005d975da48 :
 hmw05d@fsu.edu:stanton1
 ajp03d@fsu.edu:theatre3
 mmc04f@fsu.edu:7GeP9pEB
