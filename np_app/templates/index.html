@@ -5,6 +5,8 @@ Last Modified Date: 27 October 2023
 Assumptions: N/A
 References: N/A
 -->
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +26,7 @@ References: N/A
 </div>
     
     <h1>FSU Data Breach Search Engine</h1>
-    <div># OF BREACHED FSU EMAILS</div>
-    <div class="counter"></div>
+    <div class="counter-text">THERE ARE CURRENTLY <div class="counter"></div> COMPROMISED FSU EMAILS</div>
     
     <form method="POST" action="">
       {% csrf_token %}
@@ -57,7 +58,7 @@ References: N/A
 
 /* Style and format the entire site*/
 body{
-    background: linear-gradient(0deg, hsla(0, 0%, 0%, 1) 0%, hsla(349, 45%, 33%, 1) 100%);
+    background: black; 
     display: flexbox;
     justify-content: center;
     align-items: center;
@@ -66,6 +67,18 @@ body{
     margin: 0;
     padding: 0px;
     font-family: "monaco", monospace;
+    z-index: 1;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, hsla(0, 0%, 0%, 1) 0%, hsla(349, 45%, 33%, 1) 100%);
+    z-index: -1;
 }
 
 p{
@@ -150,8 +163,9 @@ form{
     margin: 0 auto;
     max-width: 300px;
     color: white;
+    padding: 25px;
+    margin-top: 50px;
 }
-
 
 .wave-group {
   position: relative;
@@ -159,13 +173,14 @@ form{
 
 .wave-group .input {
   color: white;
-  font-size: 35px;
+  font-size: 30px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 300px;
+  width: 275px;
   border: none;
   border-bottom: 1px solid #515151;
   background: transparent;
+  font-family: "monaco", monospace;
 }
 
 .wave-group .input:focus {
@@ -199,7 +214,7 @@ form{
 .wave-group .bar {
   position: relative;
   display: block;
-  width: 315px;
+  width: 290px;
 }
 
 .wave-group .bar:before,.wave-group .bar:after {
@@ -300,6 +315,7 @@ div{
   text-align: center;
   font-size: 40px;
   padding: 10px;
+  display: inline;
 }
 .counter::after {
   content: counter(num);
@@ -310,8 +326,12 @@ div{
     --num: 0;
   }
   to {
-    --num: 212520; 
+    --num: 250639; 
   }
+}
+
+.counter-text{
+  font-size: 25px;
 }
 
 </style>
