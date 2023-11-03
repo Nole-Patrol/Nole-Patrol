@@ -21,6 +21,7 @@ References: N/A
 
 
 <body>
+    <div class="card">
     <h1>Search Results</h1>
     {% if no_match %}
         <p>No match found</p>
@@ -32,6 +33,7 @@ References: N/A
             {% endfor %}
         </ul>
     {% endif %}
+    </div>
 </body>
 
 <style>
@@ -102,7 +104,7 @@ References: N/A
         width: 100%;
         height: 100%;
         background: linear-gradient(0deg, hsla(0, 0%, 0%, 1) 0%, hsla(349, 45%, 33%, 1) 100%);
-        z-index: -1;
+        z-index: -1;Nole Patrol is a dynamic and innovative project that combines the power of data with the goal of enhancing security and privacy for the Florida State University (FSU) community. Our mission is to provide a comprehensive solution for monitoring and addressing potential data breaches involving FSU email accounts.
     }
 
     
@@ -158,6 +160,9 @@ References: N/A
   float: right;
 }
 
+h1{
+    padding-top:50px;
+}  
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
   .header a {
@@ -170,9 +175,28 @@ References: N/A
   }
 }
 
+.card {
+ display: flexbox;
+ justify-content: center;
+ width: 90%;
+ height: 100%;
+ border-radius: 30px;
+ color: white;
+ background: hsla(349, 45%, 33%, 1) 100%);
+ box-shadow: 15px 15px 30px rgb(25, 25, 25),
+             -15px -15px 30px rgb(60, 60, 60);
+ margin-left:100px;
+}
+
+.card_text{
+  padding-top: 35px;
+  padding: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+
 
 </style>
-
 
 </html>
 
