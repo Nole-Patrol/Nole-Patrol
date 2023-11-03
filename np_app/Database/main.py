@@ -34,10 +34,11 @@ def menu():
           "4. Extract FSU Emails (Directory)\n" +
           "5. Remove Duplicate Entries (Directory)\n" +
           "6. Remove Invalid Entries (Directory)\n" +
-          "7. Display Stats\n" +
-          "8. Display record names and lines\n" +
-          "9. Search Data\n" +
-          "10. Quit\n")
+          "7. Fix format of lines\n" +
+          "8. Display Stats\n" +
+          "9. Display record names and lines\n" +
+          "10. Search Data\n" +
+          "11. Quit\n")
 
 
 # Handle Choices - Depending on user input, handle their choice
@@ -84,7 +85,13 @@ def handle_choice(choice):
             print("Directory does not exist.")
             return
 
-        total_matches = search_matches_multiple(directory_path)
+        # Prompt the user for the output folder
+        output_folder = input("Enter the output folder path to store matches: ")
+        if not os.path.exists(output_folder):
+            print("Output folder does not exist.")
+            return
+
+        total_matches = search_matches_multiple(directory_path, output_folder)
         print("\033[92mTotal matches found: {}\033[0m".format(total_matches))
 
     # 5. Remove Duplicate Entries (Directory)
@@ -111,8 +118,18 @@ def handle_choice(choice):
         print(
             "\033[92mLines with errors saved to:\033[0m {}".format(os.path.join(directory_path, 'errors.txt')))
 
-    # 7. Display Stats
+    # 10. Fix Semicolon Format (Directory)
     elif choice == "7":
+        print("This option will fix the semicolon format (email;password) in multiple files")
+        directory_path = get_directory()
+        if not os.path.exists(directory_path):
+            print("Directory does not exist.")
+            return
+
+        fix_semicolon_format_in_files(directory_path)
+        print("\033[92mSemicolon format fixed in files.\033[0m")
+    # 7. Display Stats
+    elif choice == "8":
         print("This option displays statistics from all databases")
         directory_path = get_directory()
         if not os.path.exists(directory_path):
@@ -122,7 +139,7 @@ def handle_choice(choice):
         display_stats(directory_path)
 
     # 8. Display record names and lines
-    elif choice == "8":
+    elif choice == "9":
         print("This option will save a list of record names and amount of lines (For use in Excel)")
         directory_path = get_directory()
         if not os.path.exists(directory_path):
@@ -132,7 +149,7 @@ def handle_choice(choice):
         record_lines_names(directory_path)
 
     # 9. Search data
-    elif choice == "9":
+    elif choice == "10":
         print("This option will search the data and print email matches")
         directory_path = get_directory()
         if not os.path.exists(directory_path):
@@ -251,8 +268,8 @@ def search_matches(input_file_path):
     return line_count
 
 
-# Search matches (All files) - Searches for matches for fsu.edu in databases
-def search_matches_multiple(directory_path):
+# Modify the search_matches_multiple function to accept an output_folder argument
+def search_matches_multiple(directory_path, output_folder):
     # Define the search patterns keywords
     keywords = [r"@fsu\.edu", r"@[a-zA-Z]+\.(fsu\.edu)"]
 
@@ -290,7 +307,7 @@ def search_matches_multiple(directory_path):
             # If any matches were found in the current file
             if matches:
                 # Construct the name for the output file based on the original file's name
-                output_file_path = os.path.join(root, f"{file_name}_matches.txt")
+                output_file_path = os.path.join(output_folder, f"{file_name}_matches.txt")
 
                 # Open the output file for writing and save the matched lines
                 with open(output_file_path, "w", encoding="iso-8859-1") as output_file:
@@ -304,58 +321,68 @@ def remove_duplicate_lines(directory_path):
     # Total number of duplicates
     total_duplicates = 0
 
-    # Walk through the directory and its subdirectories
-    for dirpath, _, filenames in os.walk(directory_path):
-        for filename in filenames:
-            # Skip processing desktop.ini files
-            if filename == "desktop.ini":
-                continue
+    # Open a file to write duplicates
+    duplicates_file_path = os.path.join(directory_path, "duplicates.txt")
+    with open(duplicates_file_path, "w", encoding="iso-8859-1") as duplicates_file:
 
-            # Construct the full path to the current file
-            file_path = os.path.join(dirpath, filename)
+        # Walk through the directory and its subdirectories
+        for dirpath, _, filenames in os.walk(directory_path):
+            for filename in filenames:
+                # Skip processing desktop.ini files and the duplicates file itself
+                if filename.lower() in ["desktop.ini", "duplicates.txt"]:
+                    continue
 
-            try:
-                # Open the current file for reading
-                with open(file_path, "r", encoding="iso-8859-1") as input_file:
-                    lines = input_file.readlines()
+                # Construct the full path to the current file
+                file_path = os.path.join(dirpath, filename)
 
-                # Use a set to track unique lines for efficient look-up
-                unique_lines = set()
+                try:
+                    # Open the current file for reading
+                    with open(file_path, "r", encoding="iso-8859-1") as input_file:
+                        lines = input_file.readlines()
 
-                # List to store non-duplicate lines
-                output_lines = []
+                    # Use a dictionary to track unique lines
+                    unique_lines = {}
 
-                # Iterate through each line in the file
-                for line in lines:
-                    # Check if the line hasn't been seen before
-                    if line not in unique_lines:
-                        # Add the unique line to the output list
-                        output_lines.append(line)
+                    # List to store non-duplicate lines
+                    output_lines = []
 
-                        # Mark the line as seen
-                        unique_lines.add(line)
+                    # Iterate through each line in the file
+                    for line in lines:
+                        # Normalize the line to a consistent case for comparison
+                        line_lower = line.lower()
 
-                # Write the non-duplicate lines back to the original file
-                with open(file_path, "w", encoding="iso-8859-1") as output_file:
-                    output_file.writelines(output_lines)
+                        # Check if the lowercase version of the line hasn't been seen before
+                        if line_lower not in unique_lines:
+                            # Add the original line to the output list
+                            output_lines.append(line)
+                            # Mark the lowercase line as seen
+                            unique_lines[line_lower] = True
+                        else:
+                            # Since it's a duplicate, write it to the duplicates file
+                            duplicates_file.write(line)
 
-                # Calculate and print the number of duplicate lines removed
-                total_duplicates = len(lines) - len(output_lines)
+                    # Calculate the number of duplicate lines removed
+                    num_duplicates = len(lines) - len(output_lines)
+                    total_duplicates += num_duplicates
 
-            # Handle any errors that arise while processing the file
-            except Exception as e:
-                print(f"An error occurred processing {file_path}: {str(e)}")
+                    # Write the non-duplicate lines back to the original file
+                    with open(file_path, "w", encoding="iso-8859-1") as output_file:
+                        output_file.writelines(output_lines)
+
+                # Handle any errors that arise while processing the file
+                except Exception as e:
+                    print(f"An error occurred processing {file_path}: {str(e)}")
+
+    # Print the total number of duplicates removed
+    print(f"Total duplicates removed: {total_duplicates}")
+    print(f"Check '{duplicates_file_path}' for the list of duplicates.")
 
     return total_duplicates
 
 
-# Remove Errors - Goes through all files to remove lines with invalid data
 def remove_errors(directory_path):
     # Expression for valid lines
-    valid_pattern = re.compile(r'^[^:]+@[^:]+:[^:]+$')
-
-    # Expression for lines that have a ";" instead of a ":"
-    semi_colon_pattern = re.compile(r'^[^;]+@[^;]+;[^;]+$')
+    valid_pattern = re.compile(r'^[^:]+:[^:]+$')
 
     # Total number of errors and the invalid lines
     total_errors = 0
@@ -383,14 +410,12 @@ def remove_errors(directory_path):
             for line in lines:
                 stripped_line = line.strip()
                 if valid_pattern.match(stripped_line):
-                    valid_lines.append(line)
-                elif semi_colon_pattern.match(stripped_line):
-                    # Convert the ';' to ':'
-                    corrected_line = stripped_line.replace(";", ":")
-                    valid_lines.append(corrected_line + "\n")
+                    valid_lines.append(stripped_line + "\n")
                 else:
                     total_errors += 1
-                    erroneous_lines.append(line)
+                    # Replace ";" with ":" and add to erroneous lines
+                    corrected_line = stripped_line.replace(";", ":")
+                    erroneous_lines.append(corrected_line + "\n")
 
             # Write back only valid lines to the file
             try:
@@ -400,7 +425,7 @@ def remove_errors(directory_path):
                 print(f"Error writing to file {file_path}: {str(e)}")
                 continue
 
-    # Write erroneous lines to a new file
+    # Write erroneous lines to a new errors file
     try:
         with open(os.path.join(directory_path, 'errors.txt'), 'w', encoding="iso-8859-1") as err_file:
             err_file.writelines(erroneous_lines)
@@ -408,6 +433,47 @@ def remove_errors(directory_path):
         print(f"Error writing to errors.txt: {str(e)}")
 
     return total_errors
+
+
+def fix_semicolon_format_in_files(directory_path):
+    # Walk through the directory
+    for foldername, subfolders, filenames in os.walk(directory_path):
+        for filename in filenames:
+            # Skip processing desktop.ini files
+            if filename == "desktop.ini":
+                continue
+
+            file_path = os.path.join(foldername, filename)
+
+            # Read and process each file
+            try:
+                with open(file_path, 'r', encoding="iso-8859-1") as file:
+                    lines = file.readlines()
+            except Exception as e:
+                print(f"Error reading file {file_path}: {str(e)}")
+                continue
+
+            # Replace ";" with ":" in each line if the format is "email;password"
+            updated_lines = []
+            for line in lines:
+                stripped_line = line.strip()
+                if ";" in stripped_line:
+                    parts = stripped_line.split(";")
+                    if len(parts) == 2:
+                        corrected_line = f"{parts[0]}:{parts[1]}\n"
+                        updated_lines.append(corrected_line)
+                    else:
+                        updated_lines.append(stripped_line + "\n")
+                else:
+                    updated_lines.append(stripped_line + "\n")
+
+            # Write back the updated lines to the file
+            try:
+                with open(file_path, 'w', encoding="iso-8859-1") as file:
+                    file.writelines(updated_lines)
+            except Exception as e:
+                print(f"Error writing to file {file_path}: {str(e)}")
+                continue
 
 
 # Display Statistics - total number of email records, unique emails, and the top 10 domain handles
@@ -429,7 +495,8 @@ def display_stats(directory_path):
                     # Extract email and domain handle using regex
                     match = re.search(r'(\S+)@(\S+):', line)
                     if match:
-                        email, domain = match.groups()
+                        # Normalize the email and domain to lowercase
+                        email, domain = map(str.lower, match.groups())
 
                         # Track the unique email addresses
                         unique_emails.add(email)
@@ -491,6 +558,20 @@ def search_data(directory):
     # Prompt user for email input
     email_to_search = input("Please enter the email address: ")
 
+    # Normalize the email search term to lowercase
+    user_part, domain_part = email_to_search.lower().split('@')
+
+    # Modify the domain regex to allow any subdomain variations and make it case-insensitive
+    domain_regex = (
+            rf"([a-zA-Z0-9_.+-]+@)?([a-zA-Z0-9-]+\.)?"
+            + re.escape(domain_part.split('.')[-2])
+            + r"\."
+            + re.escape(domain_part.split('.')[-1])
+    )
+
+    # Compile the regex pattern to search for variations of the email domain
+    email_regex = re.compile(domain_regex, re.IGNORECASE)
+
     # Counter to track the number of entries found
     entry_count = 0
 
@@ -502,20 +583,26 @@ def search_data(directory):
             # Open the file and search for the email
             with open(file_path, 'r', encoding="iso-8859-1") as file:
                 for line in file:
-                    if email_to_search in line:
-                        # Extract email and password
-                        email, password = line.strip().split(":")
+                    try:
+                        # Use the regex to search within the line
+                        match = email_regex.search(line)
+                        if match:
+                            # Extract email and password
+                            email, password = line.strip().split(":")
 
-                        # Extract filename without extension
-                        file_name_without_ext = os.path.splitext(filename)[0]
+                            if email.lower().startswith(user_part.lower() + "@"):
+                                # Extract filename without extension
+                                file_name_without_ext = os.path.splitext(filename)[0]
 
-                        # Display the results
-                        print("\033[91m\nEmail:\033[0m {}".format(email))
-                        print("\033[91mPassword:\033[0m {}".format(password))
-                        print("\033[93mBreach:\033[0m {}".format(file_name_without_ext))
+                                # Display the results
+                                print("\033[91m\nEmail:\033[0m {}".format(email))
+                                print("\033[91mPassword:\033[0m {}".format(password))
+                                print("\033[93mBreach:\033[0m {}".format(file_name_without_ext))
 
-                        # Increment entry counter
-                        entry_count += 1
+                                # Increment entry counter
+                                entry_count += 1
+                    except ValueError:
+                        continue
 
     # Display "Total Entries:" with the count in red
     print("\n\033[91mTotal Entries:\033[0m {}".format(entry_count))
@@ -530,7 +617,7 @@ def main():
     if set_directory_choice == "yes":
         set_directory()
 
-    while choice != "10":
+    while choice != "11":
         menu()
         choice = input("Choose an option (1-10): ")
 
