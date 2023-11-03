@@ -86,22 +86,25 @@ def notify_page(request):
         exists_in_breach = EmailFile.objects.filter(name=email).exists()
         
         # If it exists in the breach, send a notification email to the user.
+        breach_message = 'Your email has been found in our database of breached emails.\n' + \
+                         'For a full list of past breaches affecting your email address, ' + \
+                         'please see our database. We will notify you if your email is found in any future breaches.'
         if exists_in_breach:
             send_mail(
                 'Breach Notification',
-                'Your email has been found in our database of breached emails.',
+                breach_message,
                 settings.EMAIL_HOST_USER,
                 [email],
                 fail_silently=False,
             )
         
         # Save the email in the RegisteredUser model if it's not already there.
-        registered_user, created = RegisteredUser.objects.get_or_create(email=email)
+        created = RegisteredUser.objects.get_or_create(email=email)
         
         # If the user is newly registered (i.e., email was just added), send a thank you email.
         if created:
             send_mail(
-                'Thank You for Signing Up',
+                'Thank you for registering for Nole Patrol breach notifications',
                 'Thank you for registering for email breach notifications. We will notify you if your email is found in any future breaches.',
                 settings.EMAIL_HOST_USER,
                 [email],

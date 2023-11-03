@@ -48,7 +48,7 @@ class Command(BaseCommand):
                  excluding duplicates.
     Parameters: self, *args, **options
     Return Value: N/A
-    Author(s): Sarah Zeidan, Caitlin Marie Grimes
+    Author(s): Sarah Zeidan, Brian Arango, Caitlin Marie Grimes
     Last Modified Date: 27 October 2023
     Assumptions: For records to be successfully inserted into the database, we 
                  assume the data is in the correct format (email:password) and that 
