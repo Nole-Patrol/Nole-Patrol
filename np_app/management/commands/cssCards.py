@@ -28,7 +28,7 @@ class Command(BaseCommand):
                     template = Template('''
                         <div class="card">
                             <div class="card_text">
-                                {{breach_source}}
+                                {{breach_source}}<br>
                                 {{breached_records}}<br>
                                 Breaches
                             </div>
