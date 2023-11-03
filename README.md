@@ -139,10 +139,6 @@ Once you've created and activated your venv, install the following dependencies 
    python manage.py makemigrations
    python manage.py migrate
    ```
-5. Run the following command to import the data from the text files into the database.
-   ```sh
-   python manage.py updatemodels
-   ```
 5. Run the following command to launch the site on localhost:8000.
    ```sh
    python manage.py runserver
