@@ -74,6 +74,7 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
+    <li><a href="#disclaimers">Disclaimers</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -215,10 +216,20 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 
+<!-- DISCLAIMERS -->
+## Disclaimers
+<!-- documentation in progress - cmg
+-->
+Nole Patrol is a student-developed product and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Florida State University or any of its subsidiaries or its affiliates. All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. All data referenced in this product has been acquired from publically available sources including but not limited to public records, public data leaks, and public APIs. For questions or concerns, please see the team contact information below.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 <!-- CONTACT -->
 ## Contact
 
-Nole Patrol Team - <!--[@twitter_handle](https://twitter.com/twitter_handle) - --> email@email_client.com ( <-- Replace with email Brian created)
+Nole Patrol Team - <!--[@twitter_handle](https://twitter.com/twitter_handle) - --> NolePatrolProj@gmail.com
 
 Project Link: [https://github.com/michaelsousajr/Nole-Patrol](https://github.com/michaelsousajr/Nole-Patrol)
 
