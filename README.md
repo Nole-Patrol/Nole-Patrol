@@ -241,6 +241,7 @@ Project Link: [https://github.com/michaelsousajr/Nole-Patrol](https://github.com
 ## Acknowledgments
 
 * [PyProg](https://github.com/Bill13579/pyprog/releases)
+* [HaveIBeenPwned](https://haveibeenpwned.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
