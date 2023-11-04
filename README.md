@@ -166,14 +166,16 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
 ## Roadmap
-<!-- documentation in progress - cmg
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
 
-See the [open issues](https://github.com/michaelsousajr/Nole-Patrol/issues) for a full list of proposed features (and known issues).
--->
+Our development roadmap includes the following milestones:
+
+- **Milestone 1:** Implement efficient data imports and search functionality.
+- **Milestone 2:** Enhance encryption for stored passwords.
+- **Milestone 3:** Expand features for notifying users about potential breaches.
+- **Milestone 4:** Improve user interface and user experience.
+- **Milestone 5:** Ongoing maintenance and bug fixes.
+
+Feel free to open issues or pull requests related to these milestones.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -181,26 +183,19 @@ See the [open issues](https://github.com/michaelsousajr/Nole-Patrol/issues) for 
 
 <!-- CONTRIBUTING -->
 ## Contributing
-<!-- documentation in progress - cmg
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+We welcome contributions from the community. If you'd like to contribute to Nole Patrol, please follow these guidelines:
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
--->
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Submit a pull request to the main repository, explaining your changes and why they should be merged.
+6. We will review and, if approved, merge your changes.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- LICENSE -->
 ## License
 <!-- documentation in progress - cmg
 
