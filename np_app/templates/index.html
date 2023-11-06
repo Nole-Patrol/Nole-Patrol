@@ -49,7 +49,18 @@ References: N/A
   <div class="footer">
     <button class="password-check">Check Your Password</button>
     <br>
-    <button class="password-gen">Password Generator</button>
+    
+    <!-- Existing Password Generator Button -->
+    <!-- Modify this part to be a form for submitting a password generation request -->
+    <form method="POST" action="{% url 'index' %}">
+      {% csrf_token %}
+      <button type="submit" name="generate_password" class="password-gen">Password Generator</button>
+    </form>
+    
+    <!-- Display the generated password here if it exists -->
+    {% if generated_password %}
+      <p>Your generated password is: <strong>{{ generated_password }}</strong></p>
+    {% endif %}
   </div>
 
 </body>

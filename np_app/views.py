@@ -8,11 +8,13 @@ References: https://docs.djangoproject.com/en/4.2/topics/http/views/
 '''
 import os
 from django.shortcuts import render
-from .forms import EmailSearchForm
+from .forms import EmailSearchForm, PasswordGeneratorForm
 from .models import EmailFile, RegisteredUser
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponseRedirect
+import string
+import random
 
 '''
 Function Name: index(request)
@@ -28,17 +30,22 @@ References: https://docs.djangoproject.com/en/4.2/ref/request-response/
 def index(request):
     print("Request method:", request.method)  # Debugging statement
     
-    if request.method == 'POST': 
-        form = EmailSearchForm(request.POST)
-        
-        if form.is_valid():
-            user_email = form.cleaned_data['email']
-            print("User email:", user_email)  # Debugging statement
+    # Create instances of the forms
+    email_form = EmailSearchForm(request.POST or None)
+    password_form = PasswordGeneratorForm(request.POST or None)
+    
+    generated_password = None  # Default to no password generated
 
+    if request.method == 'POST': 
+        # Check if the email search form was submitted
+        if 'email' in request.POST and email_form.is_valid():
+            user_email = email_form.cleaned_data['email']
+            print("User email:", user_email)  # Debugging statement
+            
             # Use Django's ORM to search for the email in the database.
             matching_records = EmailFile.objects.filter(name=user_email)
             print("Matching records:", matching_records)  # Debugging statement
-
+            
             # If the email is found in the database, extract the distinct sources.
             if matching_records.exists():
                 sources = set(record.source for record in matching_records)
@@ -48,13 +55,21 @@ def index(request):
                 print("No matching records for:", user_email)  # Debugging statement
                 # Render the search.html page with the no_match flag set to True.
                 return render(request, 'search.html', {'no_match': True})
+        
+        # Check if the password generator form was submitted
+        elif 'generate_password' in request.POST and password_form.is_valid():
+            # Generate a password if the button was clicked
+            generated_password = generate_password()
+        
         else:
-            print("Form errors:", form.errors)  # Debugging statement
-
-    else: 
-        form = EmailSearchForm()
+            print("Form errors:", email_form.errors)  # Debugging statement
     
-    return render(request, 'index.html', {'form': form})
+    # Render the index.html page with the forms and the generated password (if any)
+    return render(request, 'index.html', {
+        'email_form': email_form,
+        'password_form': password_form,
+        'generated_password': generated_password
+    })
             
 def breaches_page(request):
     return render(request, 'breaches.html')
@@ -118,3 +133,26 @@ def notify_page(request):
  
 def success_view(request):
     return render(request, 'success.html')
+
+'''
+Function Name: generate_password(length=12)
+Description: This function generates a random password of the specified length.
+Parameters: length
+Return Value: password
+Author(s): Brian Arango
+Last Modified Date: 3 November 2023
+'''
+# Password generation function
+def generate_password(length=12, include_lowercase=True, include_uppercase=True, include_numbers=True, include_special=True):
+    characters = ''
+    if include_lowercase:
+        characters += string.ascii_lowercase
+    if include_uppercase:
+        characters += string.ascii_uppercase
+    if include_numbers:
+        characters += string.digits
+    if include_special:
+        characters += string.punctuation
+
+    password = ''.join(random.choice(characters) for i in range(length)) if characters else ''
+    return password
