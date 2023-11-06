@@ -381,8 +381,9 @@ def remove_duplicate_lines(directory_path):
 
 
 def remove_errors(directory_path):
-    # Expression for valid lines
-    valid_pattern = re.compile(r'^[^:]+:[^:]+$')
+    # Expression for valid email domain including variations like "my.fsu.edu" or "mailer.fsu.edu",
+    # but excluding the exact "sfsu.edu" domain, case-insensitive
+    valid_email_pattern = re.compile(r'^(.*@(?!sfsu\.edu)[\w\.]*fsu\.edu):[^:]+$', re.IGNORECASE)
 
     # Total number of errors and the invalid lines
     total_errors = 0
@@ -409,13 +410,11 @@ def remove_errors(directory_path):
             valid_lines = []
             for line in lines:
                 stripped_line = line.strip()
-                if valid_pattern.match(stripped_line):
+                if valid_email_pattern.match(stripped_line):
                     valid_lines.append(stripped_line + "\n")
                 else:
                     total_errors += 1
-                    # Replace ";" with ":" and add to erroneous lines
-                    corrected_line = stripped_line.replace(";", ":")
-                    erroneous_lines.append(corrected_line + "\n")
+                    erroneous_lines.append(stripped_line + "\n")
 
             # Write back only valid lines to the file
             try:
@@ -619,11 +618,11 @@ def main():
 
     while choice != "11":
         menu()
-        choice = input("Choose an option (1-10): ")
+        choice = input("Choose an option (1-11): ")
 
         # Check if choice is valid
         if choice not in valid_choices:
-            print("Invalid choice. Valid options: (1-10)")
+            print("Invalid choice. Valid options: (1-11)")
             continue
 
         # If valid, handle the choice
