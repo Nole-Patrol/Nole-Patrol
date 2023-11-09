@@ -24,4 +24,3 @@ class EmailSearchForm(forms.Form):
 
 class PasswordSearchForm(forms.Form):
     password = forms.CharField(label="Password")
-    #password = forms.PasswordInput()

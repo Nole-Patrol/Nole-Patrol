@@ -24,8 +24,8 @@ def set_password(password):
         """
         Encrypts the password and stores the ciphertext.
         """
-        encrypted_password = aesccm.encrypt(NONCE, password.encode(), None).hex()
-        return encrypted_password
+        password = aesccm.encrypt(NONCE, password.encode(), None).hex()
+        return password
 
 '''
 Function Name: index(request)
@@ -154,9 +154,9 @@ def check_password(request):
             password = form.cleaned_data['password']
             print("Password:", password)  # Debugging statement
             # Use Django's ORM to search for the password in the database.
-            encrypted_password=set_password(password)
-            print("Encrypted Password:", encrypted_password)
-            matching_records = EmailFile.objects.filter(encrypted_password=encrypted_password)
+            password=set_password(password)
+            print("Encrypted Password:", password)
+            matching_records = EmailFile.objects.filter(password=password)
             print(matching_records)
             #for record in matching_records:
             #    record.password = EmailFile.check_password(encrypted_password=record.password)

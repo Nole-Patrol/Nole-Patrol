@@ -36,20 +36,20 @@ References: https://docs.djangoproject.com/en/4.2/topics/db/models/
 class EmailFile(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     source = models.CharField(max_length=255, null=True, blank=True)  # Field to store breach site
-    encrypted_password = models.CharField(max_length=255, null=True, blank=True)  # Field to store encrypted passwords
+    password = models.CharField(max_length=255, null=True, blank=True)  # Field to store encrypted passwords
     
     def set_password(self, password):
         """
         Encrypts the password and stores the ciphertext.
         """
-        self.encrypted_password = aesccm.encrypt(NONCE, password.encode(), None).hex()
+        self.password = aesccm.encrypt(NONCE, password.encode(), None).hex()
 
     def check_password(self, password):
         """
         Decrypts the encrypted password and checks if it matches the provided password.
         """
         try:
-            decrypted_password = aesccm.decrypt(NONCE, bytes.fromhex(self.encrypted_password), None).decode()
+            decrypted_password = aesccm.decrypt(NONCE, bytes.fromhex(self.password), None).decode()
             return decrypted_password == password
         except Exception as e:
             return False
