@@ -22,11 +22,20 @@ References: N/A
 
 <body>
     <div class="card">
-    <h1>Search Results</h1>
     {% if no_match %}
+        <h1>Search Results</h1>
         <p>No match found</p>
     {% elif user_email %}
-        <p>Match found for {{ user_email }} in the following file(s):</p>
+        <h1>Breach Found!</h1>
+        <p>{{ user_email }} was found in the following breaches:</p>
+        <ul>
+            {% for source in sources %}
+                <li>{{ source }}</li>
+            {% endfor %}
+        </ul>
+    {% elif password %}
+        <h1>Breach Found!</h1>
+        <p>{{ password }} was found in the following breaches:</p>
         <ul>
             {% for source in sources %}
                 <li>{{ source }}</li>

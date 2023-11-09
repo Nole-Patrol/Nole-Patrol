@@ -1,18 +1,31 @@
 '''
 Description: This file contains the code for the views of the np_app.
 Author(s): Michael Sousa, Brian Arango, Caitlin Marie Grimes
-Last Modified Date: 27 October 2023
+Last Modified Date: 1 November 2023
 Assumptions: N/A
 References: https://docs.djangoproject.com/en/4.2/topics/http/views/
             https://docs.djangoproject.com/en/4.2/ref/request-response/
 '''
 import os
 from django.shortcuts import render
-from .forms import EmailSearchForm
+from .forms import EmailSearchForm, PasswordSearchForm
 from .models import EmailFile, RegisteredUser
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponseRedirect
+
+from cryptography.hazmat.primitives.ciphers.aead import AESCCM
+
+KEY = bytes.fromhex('59f055c39b5074dc7ea97abde24fc05a')
+NONCE = bytes.fromhex('c2bad8b4a4536c8f0732e8c2be')
+aesccm = AESCCM(KEY)
+
+def set_password(password):
+        """
+        Encrypts the password and stores the ciphertext.
+        """
+        encrypted_password = aesccm.encrypt(NONCE, password.encode(), None).hex()
+        return encrypted_password
 
 '''
 Function Name: index(request)
@@ -118,3 +131,50 @@ def notify_page(request):
  
 def success_view(request):
     return render(request, 'success.html')
+
+'''
+Function Name: index(request)
+Description: This function contains the code to render the index.html page and
+             process the user's email search query.
+Parameters: request
+Return Value: HTTPResponse
+Author(s): Michael Sousa Jr., Caitlin Marie Grimes
+Last Modified Date: 1 October 2023
+Assumptions: N/A
+References: https://docs.djangoproject.com/en/4.2/ref/request-response/
+'''
+def check_password(request):
+    print("Request method:", request.method)  # Debugging statement
+    print("Request data:", request.POST)  # Debugging statement
+    
+    if request.method == 'POST': 
+        form = PasswordSearchForm(request.POST)
+        
+        if form.is_valid():
+            password = form.cleaned_data['password']
+            print("Password:", password)  # Debugging statement
+            # Use Django's ORM to search for the password in the database.
+            encrypted_password=set_password(password)
+            print("Encrypted Password:", encrypted_password)
+            matching_records = EmailFile.objects.filter(encrypted_password=encrypted_password)
+            print(matching_records)
+            #for record in matching_records:
+            #    record.password = EmailFile.check_password(encrypted_password=record.password)
+            #print("Matching records:", matching_records)  # Debugging statement
+
+            # If the password is found in the database, extract the distinct sources.
+            if matching_records.exists():
+                sources = set(record.source for record in matching_records)
+                # Render the search.html page with the results.
+                return render(request, 'search.html', {'password': password, 'sources': sources})
+            else: 
+                print("No matching records for:", password)  # Debugging statement
+                # Render the search.html page with the no_match flag set to True.
+                return render(request, 'search.html', {'no_match': True})
+        else:
+            print("Form errors:", form.errors)  # Debugging statement
+
+    else: 
+        form = PasswordSearchForm()
+    
+    return render(request, 'checkpassword.html', {'form': form})

@@ -108,10 +108,12 @@ class Command(BaseCommand):
                         # Check if the line contains both email and password.
                         if len(fields) == 2:
                             email, password = fields
-                            # Encrypt the password using the method from the EmailFile model
-                            encrypted_password = EmailFile().encrypt_password(password)
-                            # Create an instance of the EmailFile model and append to email_instances list.
-                            email_instances.append(EmailFile(name=email, password=encrypted_password, source=file_name_without_extension))
+                            # Create an instance of the EmailFile model
+                            email_file_instance = EmailFile(name=email, source=file_name_without_extension)
+                            # Encrypt the password using the set_password method from the EmailFile model
+                            email_file_instance.set_password(password)
+                            # Append the instance to the email_instances list.
+                            email_instances.append(email_file_instance)
                         else:
                             format_error_counter += 1
                             format_error_lines.append(line)

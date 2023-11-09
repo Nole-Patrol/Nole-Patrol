@@ -21,3 +21,7 @@ References: N/A
 '''
 class EmailSearchForm(forms.Form):
     email = forms.EmailField(label="Email")
+
+class PasswordSearchForm(forms.Form):
+    password = forms.CharField(label="Password")
+    #password = forms.PasswordInput()

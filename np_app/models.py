@@ -16,24 +16,12 @@ References: https://docs.djangoproject.com/en/4.2/topics/db/models/
 '''
 
 from django.db import models
-from cryptography.fernet import Fernet #pip install cryptography
-import hashlib, base64
-from Nole_Patrol.settings import SECRET_KEY
+from cryptography.hazmat.primitives.ciphers.aead import AESCCM
 
-'''
-Function Name: get_fernet_key()
-Description: This function returns the fernet key used to encrypt and decrypt
-             the passwords in the EmailFile model.
-Parameters: N/A
-Return Value: base64 encrypted byte string
-Author(s): Brian Arango
-Last Modified Date: 27 October 2023
-Assumptions: N/A
-References: N/A
-'''
-def get_fernet_key():
-    return base64.urlsafe_b64encode(hashlib.sha256(SECRET_KEY.encode()).digest())
-    
+KEY = bytes.fromhex('59f055c39b5074dc7ea97abde24fc05a')
+NONCE = bytes.fromhex('c2bad8b4a4536c8f0732e8c2be')
+aesccm = AESCCM(KEY)
+
 '''
 Class Name: EmailFile(models.Model)
 Description: This class contains the code to create the EmailFile model. This
@@ -48,43 +36,23 @@ References: https://docs.djangoproject.com/en/4.2/topics/db/models/
 class EmailFile(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     source = models.CharField(max_length=255, null=True, blank=True)  # Field to store breach site
-    password = models.CharField(max_length=255, null=True, blank=True)  # Field to store passwords
-
-    #def save(self, *args, **kwargs):
-    #    self.password = self.encrypt_password(self.password)
-    #    super().save(*args, **kwargs)
-
-    '''
-    Function Name: encrypt_password(self, password)
-    Description: This function encrypts the password using the fernet key and
-                 returns the encrypted password.
-    Parameters: self, password
-    Return Value: byte string
-    Author(s): Brian Arango
-    Last Modified Date: 27 October 2023
-    Assumptions: N/A
-    References: N/A
-    '''    
-    def encrypt_password(self, password):
-        cipher_suite = Fernet(get_fernet_key())
-        encrypted_text = cipher_suite.encrypt(password.encode())
-        return encrypted_text.decode()
+    encrypted_password = models.CharField(max_length=255, null=True, blank=True)  # Field to store encrypted passwords
     
-    '''
-    Function Name: decrypt_password(self, encrypted_password)
-    Description: This function decrypts the password using the fernet key and
-                 returns the decrypted password.
-    Parameters: self, encrypted_password
-    Return Value: byte string
-    Author(s): Brian Arango
-    Last Modified Date: 27 October 2023
-    Assumptions: N/A
-    References: N/A
-    ''' 
-    def decrypt_password(self, encrypted_password):
-        cipher_suite = Fernet(get_fernet_key())
-        decrypted_text = cipher_suite.decrypt(encrypted_password.encode())
-        return decrypted_text.decode()
+    def set_password(self, password):
+        """
+        Encrypts the password and stores the ciphertext.
+        """
+        self.encrypted_password = aesccm.encrypt(NONCE, password.encode(), None).hex()
+
+    def check_password(self, password):
+        """
+        Decrypts the encrypted password and checks if it matches the provided password.
+        """
+        try:
+            decrypted_password = aesccm.decrypt(NONCE, bytes.fromhex(self.encrypted_password), None).decode()
+            return decrypted_password == password
+        except Exception as e:
+            return False
 
     def __str__(self):
         return self.name
