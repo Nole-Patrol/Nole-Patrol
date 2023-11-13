@@ -1,43 +1,40 @@
 <!--
-Description: This file is the template for the notification page.
-Author(s): Brian Arango, Michael Sousa
+Description: This file is the template for the home page.
+Author(s): Michael Sousa Jr.
 Last Modified Date: 27 October 2023
 Assumptions: N/A
 References: N/A
 -->
-<!DOCTYPE html>
+
+<!doctype html>
+{% load static %}
 <html lang="en">
-<head>
-    <title>Notify Me</title>
-</head>
-    
-<body>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Password Generator - Nole Patrol</title>
+		<link
+			rel="icon"
+			href="{% static 'images/favicon.ico' %}"
+			type="image/x-icon"
+		/>
+	</head>
 
-<div class="header">
-  <a class="logo">Nole Patrol</a>
-  <div class="header-right">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/breaches">Breaches</a>
-    <a href="/password">Password</a>
-    <a class="active" href="/notify">Notify Me</a>
-  </div>
-</div>
+	<body>
+		<div class="header">
+			<a class="logo">Nole Patrol</a>
+			<div class="header-right">
+				<a href="/password">Password</a>
+				<a href="/" href="#home">Return Home</a>
+			</div>
+		</div>
+		<div class="title_border">
+			<h1>Password Generator</h1>
+		</div>
 
-<div class="title_border">
-	<h1>Notify Me</h1>
-</div>
+		<div class="title_text">Generate a secure password</div>
+	</body>
 
-<div class="title_class">We'll notify you if your email is found in a databreach</div>
-
-<form method="post" action="{% url 'signup' %}">
-    {% csrf_token %}
-    <input required="" type="text" class="input" name="email" placeholder="Email">
-    <button class="search-btn">Notify Me</button>
-</form>
-
-</body>
-<style>
+	<style>
 		/* Style and format the entire site*/
 		body {
 			background: black;
@@ -74,6 +71,15 @@ References: N/A
 			font-size: 24px;
 			width: 200px;
 			margin: 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.title_text {
+			margin: 10px;
 		}
 
 		/* Style the header with a grey background and some padding */
@@ -133,7 +139,7 @@ References: N/A
 			text-align: center;
 		}
 
-		h3{
+		h3 {
 			margin: 0px;
 		}
 
@@ -143,10 +149,6 @@ References: N/A
 			border-color: #f1f1f1;
 			border-radius: 15px;
 			margin: 25px 550px 0px 550px;
-		}
-
-		.title_class{
-			margin: 20px;
 		}
 
 		form {
@@ -274,3 +276,4 @@ References: N/A
 		}
 	</style>
 </html>
+

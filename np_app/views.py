@@ -62,6 +62,11 @@ def breaches_page(request):
 def about_page(request):
     return render(request, 'about.html')
 
+def password_page(request):
+    return render(request, 'password.html')
+
+def passgen_page(request):
+    return render(request, 'passgen.html')
 '''
 Function Name: notify_page(request)
 Description: This function handles the process of notifying users if their email is found in the breached 
