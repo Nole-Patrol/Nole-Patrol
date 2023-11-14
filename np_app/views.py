@@ -61,7 +61,7 @@ def index(request):
             else: 
                 print("No matching records for:", user_email)  # Debugging statement
                 # Render the search.html page with the no_match flag set to True.
-                return render(request, 'search.html', {'no_match': True})
+                return render(request, 'search.html', {'user_email': user_email, 'no_match': True})
         else:
             print("Form errors:", form.errors)  # Debugging statement
 
