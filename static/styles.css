@@ -1,44 +1,3 @@
-<!--
-Description: This file is the template for the notification page.
-Author(s): Brian Arango, Michael Sousa
-Last Modified Date: 27 October 2023
-Assumptions: N/A
-References: N/A
--->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Notify Me</title>
-</head>
-    
-<body>
-
-<div class="header">
-  <a class="logo">Nole Patrol</a>
-  <div class="header-right">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/breaches">Breaches</a>
-    <a href="/password">Password</a>
-    <a class="active" href="/notify">Notify Me</a>
-  </div>
-</div>
-
-<div class="title_border">
-	<h1>Notify Me</h1>
-</div>
-
-<div class="title_class">We'll notify you if your email is found in a databreach</div>
-
-<form method="post" action="{% url 'signup' %}">
-    {% csrf_token %}
-    <input required="" type="text" class="input" name="email" placeholder="Email">
-    <button class="search-btn">Notify Me</button>
-</form>
-
-</body>
-<style>
-		/* Style and format the entire site*/
 		body {
 			background: black;
 			display: flexbox;
@@ -143,10 +102,6 @@ References: N/A
 			border-color: #f1f1f1;
 			border-radius: 15px;
 			margin: 25px 550px 0px 550px;
-		}
-
-		.title_class{
-			margin: 20px;
 		}
 
 		form {
@@ -272,5 +227,3 @@ References: N/A
 			font-size: 25px;
 			padding-top: 20px;
 		}
-	</style>
-</html>

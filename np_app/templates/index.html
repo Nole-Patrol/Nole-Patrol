@@ -6,334 +6,312 @@ Assumptions: N/A
 References: N/A
 -->
 
+<!doctype html>
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Home</title>
-</head>
-    
-<body>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home - Nole Patrol</title>
+		<link
+			rel="icon"
+			href="{% static 'images/favicon.ico' %}"
+			type="image/x-icon"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'styles.css' %}"
+		/>
+	</head>
 
-<div class="header">
-  <a class="logo">Nole Patrol</a>
-  <div class="header-right">
-    <a class="active" href="#home">Home</a>
-    <a href="/about">About</a>
-    <a href="/breaches">Breaches</a>
-    <a href="/notify">Notify Me</a>
-  </div>
-</div>
-    
-    <h1>FSU Data Breach Search Engine</h1>
-    <div class="counter-text">THERE ARE CURRENTLY <div class="counter"></div> COMPROMISED FSU EMAILS</div>
-    
-    <form method="POST" action="">
-      {% csrf_token %}
-    <div class="wave-group">
-        <input required="" type="text" class="input" name="email">
-        <span class="bar"></span>
-    <label class="label">
-        <span class="label-char" style="--index: 0">E</span>
-        <span class="label-char" style="--index: 1">m</span>
-        <span class="label-char" style="--index: 2">a</span>
-        <span class="label-char" style="--index: 3">i</span>
-        <span class="label-char" style="--index: 4">l</span>
+	<body>
+		<div class="header">
+			<a class="logo">Nole Patrol</a>
+			<div class="header-right">
+				<a class="active" href="#home">Home</a>
+				<a href="/about">About</a>
+				<a href="/breaches">Breaches</a>
+				<a href="/password">Password</a>
+				<a href="/notify">Notify Me</a>
+			</div>
+		</div>
+		<div class="title_border">
+			<h1>FSU Data Breach Search Engine</h1>
+		</div>
+		<div class="counter-text">
+			THERE ARE CURRENTLY
+			<div class="counter"></div>
+			COMPROMISED FSU EMAILS
+		</div>
 
-    </label>
-    </div>
+		<form method="POST" action="">
+			{% csrf_token %}
+			<input
+				required=""
+				type="text"
+				class="input"
+				name="email"
+				placeholder="Email"
+			/>
+			<button class="search-btn">Search</button>
+		</form>
 
-    <button class="search-btn">Search</button>
-    </form>
+		<div class="footer">
+			<h3>
+				Top FSU Domains
+				<hr />
+			</h3>
+			<h3>
+				Top FSU Breaches
+				<hr />
+			</h3>
+			<div class="footer_child">
+				<p>email 1</p>
+				<p>email 2</p>
+				<p>email 3</p>
+				<p>email 4</p>
+				<p>email 5</p>
+			</div>
+			<div class="footer_child">
+				<p class="child_text">breach 1</p>
+				<p>breach 2</p>
+				<p>breach 3</p>
+				<p>breach 4</p>
+				<p>breach 5</p>
+			</div>
+		</div>
+	</body>
 
-  <div class="footer">
-    <a href="/checkpassword"><button class="password-check">Check Your Password</button></a>
-    <br>
-    <button class="password-gen">Password Generator</button>
-  </div>
+	<style>
+		/* Style and format the entire site*/
+		body {
+			background: black;
+			display: flexbox;
+			justify-content: center;
+			align-items: center;
+			max-height: 100%;
+			max-width: 100%;
+			font-size: 30px;
+			margin: 0;
+			padding: 0px;
+			font-family: "monaco", monospace;
+			z-index: 1;
+		}
 
-</body>
+		body::before {
+			content: "";
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				0deg,
+				hsla(0, 0%, 0%, 1) 0%,
+				hsla(349, 45%, 33%, 1) 100%
+			);
+			z-index: -1;
+		}
 
-<style> 
+		p {
+			color: #ddd;
+			text-align: center;
+			font-size: 24px;
+			width: 200px;
+			margin: 0;
+		}
 
-/* Style and format the entire site*/
-body{
-    background: black; 
-    display: flexbox;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 30px;
-    margin: 0;
-    padding: 0px;
-    font-family: "monaco", monospace;
-    z-index: 1;
-}
+		/* Style the header with a grey background and some padding */
+		.header {
+			overflow: hidden;
+			background-color: #f1f1f1;
+			padding: 20px 20px;
+			border-radius: 5px;
+			box-shadow: rgb(28 32 93 / 25%) 0px 5px 10px 0px;
+		}
 
-body::before{
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, hsla(0, 0%, 0%, 1) 0%, hsla(349, 45%, 33%, 1) 100%);
-    z-index: -1;
-}
+		/* Style the header links */
+		.header a {
+			float: left;
+			color: black;
+			text-align: center;
+			padding: 12px;
+			text-decoration: none;
+			font-size: 18px;
+			line-height: 25px;
+			border-radius: 10px;
+		}
 
-p{
-  color: #ddd;
-  text-align: center;
-  font-size: 20px;
-}
+		/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+		.header a.logo {
+			font-size: 25px;
+			font-weight: bold;
+		}
 
+		.header a.logo:hover {
+			text-decoration: none;
+			background-color: #f1f1f1;
+			cursor: auto;
+		}
 
-/* Style the header with a grey background and some padding */
-.header {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 20px 20px;
-  border-radius: 5px;
-  box-shadow: rgb(28 32 93 / 25%) 0px 5px 10px 0px;
-}
+		/* Change the background color on mouse-over */
+		.header a:hover {
+			background-color: #ddd;
+			color: black;
+			transition: 0.3s ease-in;
+		}
 
-/* Style the header links */
-.header a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 10px;
-}
+		/* Style the active/current link*/
+		.header a.active {
+			background-color: maroon;
+			color: white;
+			box-shadow: rgb(28 32 93 / 60%) 0px 2px 8px 0px;
+		}
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
+		/* Float the link section to the right */
+		.header-right {
+			float: right;
+		}
 
-.header a.logo:hover{
-  text-decoration: none;
-  background-color: #f1f1f1;
-  cursor: auto; 
-}
+		h1 {
+			color: #f1f1f1;
+			text-align: center;
+		}
 
-/* Change the background color on mouse-over */
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-  transition: .3s ease-in;
-}
+		h3 {
+			margin: 0px;
+		}
 
-/* Style the active/current link*/
-.header a.active {
-  background-color: maroon;
-  color: white;
-  box-shadow: rgb(28 32 93 / 60%) 0px 2px 8px 0px;
-}
+		.title_border {
+			border-width: 5px;
+			border-style: solid;
+			border-color: #f1f1f1;
+			border-radius: 15px;
+			margin: 25px 550px 0px 550px;
+		}
 
-/* Float the link section to the right */
-.header-right {
-  float: right;
-}
+		form {
+			margin: 0 auto;
+			color: white;
+			padding: 25px;
+			margin-top: 25px;
+			max-width: 600px;
+		}
 
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .header-right {
-    float: none;
-  }
-}
+		.input {
+			border: 1px solid grey;
+			box-sizing: border-box;
+			padding: 12px 15px;
+			width: 600px;
+			height: 65px;
+			border-radius: 40px;
+		}
 
+		input,
+		input::-webkit-input-placeholder {
+			font-size: 30px;
+			line-height: 3;
+			font-family: "monaco", monospace;
+		}
 
-h1{
-    color: #f1f1f1;
-    text-align: center;
+		button {
+			appearance: none;
+			background-color: transparent;
+			border: 0.125em solid #515151;
+			border-radius: 0.9375em;
+			box-sizing: border-box;
+			color: #999;
+			cursor: pointer;
+			display: block;
+			font-size: 16px;
+			font-weight: 600;
+			line-height: normal;
+			margin: 40px auto 30px;
+			min-height: 3.75em;
+			min-width: 0;
+			outline: none;
+			padding: 1em 2.3em;
+			text-align: center;
+			text-decoration: none;
+			transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+			will-change: transform;
+			text-align: center;
+		}
 
-}
+		button:disabled {
+			pointer-events: none;
+		}
 
-form{
-    margin: 0 auto;
-    max-width: 300px;
-    color: white;
-    padding: 25px;
-    margin-top: 50px;
-}
+		button:hover {
+			color: maroon;
+			background-color: white;
+			box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+			transform: translateY(-2px);
+			border: 0.125em solid white;
+		}
 
-.wave-group {
-  position: relative;
-}
+		button:active {
+			box-shadow: none;
+			transform: translateY(0);
+		}
 
-.wave-group .input {
-  color: white;
-  font-size: 30px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 275px;
-  border: none;
-  border-bottom: 1px solid #515151;
-  background: transparent;
-  font-family: "monaco", monospace;
-}
+		.footer {
+			display: grid;
+			grid-template-columns: 15% 15%;
+			gap: 20px;
+			justify-content: center;
+			margin: 10px;
+		}
 
-.wave-group .input:focus {
-  outline: none;
+		.footer_child {
+			display: grid;
+			grid-column: span 1;
+			justify-content: center;
+			background-color: transparent;
+			color: #ddd;
+			align-items: center;
+		}
 
-}
+		@property --num {
+			syntax: "<integer>";
+			initial-value: 0;
+			inherits: false;
+		}
 
-.wave-group .label {
-  color: #999;
-  font-size: 35px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  display: flex;
-}
+		div {
+			color: #ddd;
+			text-align: center;
+			font-size: 20px;
+		}
 
-.wave-group .label-char {
-  transition: 0.2s ease all;
-  transition-delay: calc(var(--index) * .05s);
-}
+		.counter {
+			animation: counter 2.5s forwards ease-in-out;
+			counter-reset: num var(--num);
+			color: #ddd;
+			text-align: center;
+			font-size: 40px;
+			padding: 10px;
+			display: inline;
+		}
+		.counter::after {
+			content: counter(num);
+		}
 
-.wave-group .input:focus ~ label .label-char,
-.wave-group .input:valid ~ label .label-char {
-  transform: translateY(-20px);
-  font-size: 14px;
-  color: #FFFFFF;
-}
+		@keyframes counter {
+			from {
+				--num: 0;
+			}
+			to {
+				--num: 250639;
+			}
+		}
 
-.wave-group .bar {
-  position: relative;
-  display: block;
-  width: 290px;
-}
-
-.wave-group .bar:before,.wave-group .bar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: #FFFFFF;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-
-.wave-group .bar:before {
-  left: 50%;
-}
-
-.wave-group .bar:after {
-  right: 50%;
-}
-
-.wave-group .input:focus ~ .bar:before,
-.wave-group .input:focus ~ .bar:after {
-  width: 50%;
-}
-
-button {
- appearance: none;
- background-color: transparent;
- border: 0.125em solid #515151;
- border-radius: 0.9375em;
- box-sizing: border-box;
- color: #999;
- cursor: pointer;
- display: inline-block;
- font-size: 16px;
- font-weight: 600;
- line-height: normal;
- margin: 40px 40px 30px 80px;
- min-height: 3.75em;
- min-width: 0;
- outline: none;
- padding: 1em 2.3em;
- text-align: center;
- text-decoration: none;
- transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
- user-select: none;
- -webkit-user-select: none;
- touch-action: manipulation;
- will-change: transform;
- text-align: center;
-}
-
-button:disabled {
- pointer-events: none;
-}
-
- button:hover {
- color: maroon;
- background-color: white;
- box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
- transform: translateY(-2px);
- border: 0.125em solid white;
-}
-
-button:active {
- box-shadow: none;
- transform: translateY(0);
-}
-
-.footer {
-  display: flex;
-  margin-right: 50px;
-  justify-content: center;
-  padding:50px 0;
-  background-color: transparent;
-  color: white;
-  align-items: center;
-}
-
-@property --num {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
-}
-
-div{
-  color: #ddd;
-  text-align: center;
-  font-size: 20px; 
-}
-
-.counter {
-  animation: counter 3s forwards ease-in-out;
-  counter-reset: num var(--num);
-  color: #ddd;
-  text-align: center;
-  font-size: 40px;
-  padding: 10px;
-  display: inline;
-}
-.counter::after {
-  content: counter(num);
-}
-
-@keyframes counter {
-  from {
-    --num: 0;
-  }
-  to {
-    --num: 250639; 
-  }
-}
-
-.counter-text{
-  font-size: 25px;
-}
-
-</style>
-
+		.counter-text {
+			font-size: 25px;
+			padding-top: 20px;
+		}
+	</style>
 </html>
