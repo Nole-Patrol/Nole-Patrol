@@ -139,17 +139,17 @@ def success_view(request):
     return render(request, 'success.html')
 
 '''
-Function Name: check_password(request)
-Description: This function contains the code to render the checkpassword.html page
+Function Name: password_page(request)
+Description: This function contains the code to render the password.html page
              and process the user's password search query.
 Parameters: request
 Return Value: HTTPResponse
 Author(s): Caitlin Marie Grimes
-Last Modified Date: 13 November 2023
+Last Modified Date: 14 November 2023
 Assumptions: N/A
 References: https://docs.djangoproject.com/en/4.2/ref/request-response/
 '''
-def check_password(request):
+def password_page(request):
     
     if request.method == 'POST': 
         form = PasswordSearchForm(request.POST)
@@ -177,4 +177,4 @@ def check_password(request):
     else: 
         form = PasswordSearchForm()
     
-    return render(request, 'checkpassword.html', {'form': form})
+    return render(request, 'password.html', {'form': form})

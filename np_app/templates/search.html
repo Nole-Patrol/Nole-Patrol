@@ -21,18 +21,25 @@ References: N/A
 
 	<body>
 		<div class="card">
-			<h1>Search Results</h1>
-			{% if no_match %}
-			<p>No match found</p>
-			{% elif user_email %}
-			<p>{{ user_email }} found in the following source(s):</p>
-
+		{% if no_match and password %}
+			<h1>No Breaches Found</h1>
+			<p>This password has not been found in any currently indexed breaches.</p>
+		{% elif no_match and user_email %}
+			<h1>No Breaches Found</h1>
+			<p>This email has not been found in any currently indexed breaches.</p>
+		{% elif user_email %}
+			<h1>Breach Found!</h1>
+			<p>{{ user_email }} was found in the following breaches:</p>
 			<ul>
 				{% for source in sources %}
-				<li>{{ source }}</li>
+					<li>{{ source }}</li>
 				{% endfor %}
 			</ul>
-			{% endif %}
+		{% elif password %}
+			<h1>Breach Found!</h1>
+			<p>This password was found in a data breach. It is no longer secure and should never be used.</p>
+			
+		{% endif %}
 		</div>
 	</body>
 
