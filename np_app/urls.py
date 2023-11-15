@@ -1,7 +1,7 @@
 '''
 Description: This file defines the URL patterns for the np_app application.
-Author(s): Michael Sousa Jr.
-Last Modified Date: 27 October 2023
+Author(s): Michael Sousa Jr., Caitlin Marie Grimes
+Last Modified Date: 1 November 2023
 Assumptions: N/A
 References: https://docs.djangoproject.com/en/4.2/ref/urls/
 '''
