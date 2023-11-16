@@ -1,7 +1,7 @@
 <!--
 Description: This file is the template for the home page.
 Author(s): Michael Sousa Jr.
-Last Modified Date: 27 October 2023
+Last Modified Date: 16 November 2023
 Assumptions: N/A
 References: N/A
 -->
@@ -313,5 +313,53 @@ References: N/A
 			font-size: 25px;
 			padding-top: 20px;
 		}
+    
+   @media only screen and (max-width: 768px) {
+        .header a {
+            font-size: 0.8em;
+        }
+
+        .header a.logo {
+            font-size: 1em;
+        }
+
+        .title_border {
+            margin: 10px;
+        }
+
+        h1, h3 {
+            font-size: 1.2em;
+        }
+
+        .input, button {
+            width: 95%;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .header a {
+            font-size: 0.7em;
+            padding: 10px 8px;
+        }
+
+        .header a.logo {
+            font-size: 0.9em;
+        }
+
+        h1, h3 {
+            font-size: 1em;
+        }
+
+        .title_border {
+            margin: 5px;
+            padding: 5px;
+        }
+      
+        .footer {
+          gap: 10px 150px;
+        }
+
+    }
+
 	</style>
 </html>

@@ -2519,21 +2519,48 @@ p{
   float: right;
 }
 
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .header-right {
-    float: none;
-  }
-  .cards{
-    display: grid;
-    grid-template-columns: repeat(1, 100px);
-  }
-}
+
+    @media only screen and (max-width: 768px) {
+        .header a {
+            font-size: 0.8em;
+        }
+
+        .header a.logo {
+            font-size: 1em;
+        }
+
+        .title_border {
+            margin: 10px;
+        }
+
+        h1, h3 {
+            font-size: 1.2em;
+        }
+
+        .input, button {
+            width: 95%;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .header a {
+            font-size: 0.7em;
+            padding: 10px 8px;
+        }
+
+        .header a.logo {
+            font-size: 0.9em;
+        }
+
+        h1, h3 {
+            font-size: 1em;
+        }
+
+        .title_border {
+            margin: 5px;
+            padding: 5px;
+        }
+    }
 
 h1{
     color: #f1f1f1;
