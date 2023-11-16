@@ -5,272 +5,347 @@ Last Modified Date: 27 October 2023
 Assumptions: N/A
 References: N/A
 -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <title>Notify Me</title>
-</head>
-    
-<body>
+  </head>
 
-<div class="header">
-  <a class="logo">Nole Patrol</a>
-  <div class="header-right">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/breaches">Breaches</a>
-    <a href="/password">Password</a>
-    <a class="active" href="/notify">Notify Me</a>
-  </div>
-</div>
+  <body>
+    <div class="header">
+      <a class="logo">Nole Patrol</a>
+      <div class="header-right">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/breaches">Breaches</a>
+        <a href="/password">Password</a>
+        <a class="active" href="/notify">Notify Me</a>
+      </div>
+    </div>
 
-<div class="title_border">
-	<h1>Notify Me</h1>
-</div>
+    <div class="title_border">
+      <h1>Notify Me</h1>
+    </div>
 
-<div class="title_class">We'll notify you if your email is found in a databreach</div>
+    <div class="title_class">
+      We'll notify you if your email is found in a databreach
+    </div>
 
-<form method="post" action="{% url 'signup' %}">
-    {% csrf_token %}
-    <input required="" type="email" class="input" name="email" placeholder="Email">
-    <button class="search-btn">Notify Me</button>
-</form>
+    <form method="post" action="{% url 'signup' %}">
+      {% csrf_token %}
+      <input
+        required=""
+        type="email"
+        class="input"
+        name="email"
+        placeholder="Email"
+      />
+      <button class="search-btn">Notify Me</button>
+    </form>
+  </body>
+  <style>
+    /* Style and format the entire site*/
+    body {
+      background: black;
+      display: flexbox;
+      justify-content: center;
+      align-items: center;
+      max-height: 100%;
+      max-width: 100%;
+      font-size: 30px;
+      margin: 0;
+      padding: 0px;
+      font-family: "monaco", monospace;
+      z-index: 1;
+    }
 
-</body>
-<style>
-		/* Style and format the entire site*/
-		body {
-			background: black;
-			display: flexbox;
-			justify-content: center;
-			align-items: center;
-			max-height: 100%;
-			max-width: 100%;
-			font-size: 30px;
-			margin: 0;
-			padding: 0px;
-			font-family: "monaco", monospace;
-			z-index: 1;
-		}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        0deg,
+        hsla(0, 0%, 0%, 1) 0%,
+        hsla(349, 45%, 33%, 1) 100%
+      );
+      z-index: -1;
+    }
 
-		body::before {
-			content: "";
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(
-				0deg,
-				hsla(0, 0%, 0%, 1) 0%,
-				hsla(349, 45%, 33%, 1) 100%
-			);
-			z-index: -1;
-		}
+    p {
+      color: #ddd;
+      text-align: center;
+      font-size: 24px;
+      width: 200px;
+      margin: 0;
+    }
 
-		p {
-			color: #ddd;
-			text-align: center;
-			font-size: 24px;
-			width: 200px;
-			margin: 0;
-		}
+    /* Style the header with a grey background and some padding */
+    .header {
+      overflow: hidden;
+      background-color: #f1f1f1;
+      padding: 20px 20px;
+      border-radius: 5px;
+      box-shadow: rgb(28 32 93 / 25%) 0px 5px 10px 0px;
+    }
 
-		/* Style the header with a grey background and some padding */
-		.header {
-			overflow: hidden;
-			background-color: #f1f1f1;
-			padding: 20px 20px;
-			border-radius: 5px;
-			box-shadow: rgb(28 32 93 / 25%) 0px 5px 10px 0px;
-		}
+    /* Style the header links */
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 10px;
+    }
 
-		/* Style the header links */
-		.header a {
-			float: left;
-			color: black;
-			text-align: center;
-			padding: 12px;
-			text-decoration: none;
-			font-size: 18px;
-			line-height: 25px;
-			border-radius: 10px;
-		}
+    /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
 
-		/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-		.header a.logo {
-			font-size: 25px;
-			font-weight: bold;
-		}
+    .header a.logo:hover {
+      text-decoration: none;
+      background-color: #f1f1f1;
+      cursor: auto;
+    }
 
-		.header a.logo:hover {
-			text-decoration: none;
-			background-color: #f1f1f1;
-			cursor: auto;
-		}
+    /* Change the background color on mouse-over */
+    .header a:hover {
+      background-color: #ddd;
+      color: black;
+      transition: 0.3s ease-in;
+    }
 
-		/* Change the background color on mouse-over */
-		.header a:hover {
-			background-color: #ddd;
-			color: black;
-			transition: 0.3s ease-in;
-		}
+    /* Style the active/current link*/
+    .header a.active {
+      background-color: maroon;
+      color: white;
+      box-shadow: rgb(28 32 93 / 60%) 0px 2px 8px 0px;
+    }
 
-		/* Style the active/current link*/
-		.header a.active {
-			background-color: maroon;
-			color: white;
-			box-shadow: rgb(28 32 93 / 60%) 0px 2px 8px 0px;
-		}
+    /* Float the link section to the right */
+    .header-right {
+      float: right;
+    }
 
-		/* Float the link section to the right */
-		.header-right {
-			float: right;
-		}
+    h1 {
+      color: #f1f1f1;
+      text-align: center;
+    }
 
-		h1 {
-			color: #f1f1f1;
-			text-align: center;
-		}
+    h3 {
+      margin: 0px;
+    }
 
-		h3{
-			margin: 0px;
-		}
+    .title_border {
+      border-width: 5px;
+      border-style: solid;
+      border-color: #f1f1f1;
+      border-radius: 15px;
+      margin: 25px 550px 0px 550px;
+    }
 
-		.title_border {
-			border-width: 5px;
-			border-style: solid;
-			border-color: #f1f1f1;
-			border-radius: 15px;
-			margin: 25px 550px 0px 550px;
-		}
+    .title_class {
+      margin: 20px;
+    }
 
-		.title_class{
-			margin: 20px;
-		}
+    form {
+      margin: 0 auto;
+      color: white;
+      padding: 25px;
+      margin-top: 25px;
+      max-width: 600px;
+    }
 
-		form {
-			margin: 0 auto;
-			color: white;
-			padding: 25px;
-			margin-top: 25px;
-			max-width: 600px;
-		}
+    .input {
+      border: 1px solid grey;
+      box-sizing: border-box;
+      padding: 12px 15px;
+      width: 600px;
+      height: 65px;
+      border-radius: 40px;
+    }
 
-		.input {
-			border: 1px solid grey;
-			box-sizing: border-box;
-			padding: 12px 15px;
-			width: 600px;
-			height: 65px;
-			border-radius: 40px;
-		}
+    input,
+    input::-webkit-input-placeholder {
+      font-size: 30px;
+      line-height: 3;
+      font-family: "monaco", monospace;
+    }
 
-		input,
-		input::-webkit-input-placeholder {
-			font-size: 30px;
-			line-height: 3;
-			font-family: "monaco", monospace;
-		}
+    button {
+      appearance: none;
+      background-color: transparent;
+      border: 0.125em solid #515151;
+      border-radius: 0.9375em;
+      box-sizing: border-box;
+      color: #999;
+      cursor: pointer;
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: normal;
+      margin: 40px auto 30px;
+      min-height: 3.75em;
+      min-width: 0;
+      outline: none;
+      padding: 1em 2.3em;
+      text-align: center;
+      text-decoration: none;
+      transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      will-change: transform;
+      text-align: center;
+    }
 
-		button {
-			appearance: none;
-			background-color: transparent;
-			border: 0.125em solid #515151;
-			border-radius: 0.9375em;
-			box-sizing: border-box;
-			color: #999;
-			cursor: pointer;
-			display: block;
-			font-size: 16px;
-			font-weight: 600;
-			line-height: normal;
-			margin: 40px auto 30px;
-			min-height: 3.75em;
-			min-width: 0;
-			outline: none;
-			padding: 1em 2.3em;
-			text-align: center;
-			text-decoration: none;
-			transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
-			user-select: none;
-			-webkit-user-select: none;
-			touch-action: manipulation;
-			will-change: transform;
-			text-align: center;
-		}
+    button:disabled {
+      pointer-events: none;
+    }
 
-		button:disabled {
-			pointer-events: none;
-		}
+    button:hover {
+      color: maroon;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+      transform: translateY(-2px);
+      border: 0.125em solid white;
+    }
 
-		button:hover {
-			color: maroon;
-			background-color: white;
-			box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-			transform: translateY(-2px);
-			border: 0.125em solid white;
-		}
+    button:active {
+      box-shadow: none;
+      transform: translateY(0);
+    }
 
-		button:active {
-			box-shadow: none;
-			transform: translateY(0);
-		}
+    .footer {
+      display: grid;
+      grid-template-columns: 15% 15%;
+      gap: 20px;
+      justify-content: center;
+      margin: 10px;
+    }
 
-		.footer {
-			display: grid;
-			grid-template-columns: 15% 15%;
-			gap: 20px;
-			justify-content: center;
-			margin: 10px;
-		}
+    .footer_child {
+      display: grid;
+      grid-column: span 1;
+      justify-content: center;
+      background-color: transparent;
+      color: #ddd;
+      align-items: center;
+    }
 
-		.footer_child {
-			display: grid;
-			grid-column: span 1;
-			justify-content: center;
-			background-color: transparent;
-			color: #ddd;
-			align-items: center;
-		}
+    @property --num {
+      syntax: "<integer>";
+      initial-value: 0;
+      inherits: false;
+    }
 
-		@property --num {
-			syntax: "<integer>";
-			initial-value: 0;
-			inherits: false;
-		}
+    div {
+      color: #ddd;
+      text-align: center;
+      font-size: 20px;
+    }
 
-		div {
-			color: #ddd;
-			text-align: center;
-			font-size: 20px;
-		}
+    .counter {
+      animation: counter 2.5s forwards ease-in-out;
+      counter-reset: num var(--num);
+      color: #ddd;
+      text-align: center;
+      font-size: 40px;
+      padding: 10px;
+      display: inline;
+    }
+    .counter::after {
+      content: counter(num);
+    }
 
-		.counter {
-			animation: counter 2.5s forwards ease-in-out;
-			counter-reset: num var(--num);
-			color: #ddd;
-			text-align: center;
-			font-size: 40px;
-			padding: 10px;
-			display: inline;
-		}
-		.counter::after {
-			content: counter(num);
-		}
+    @keyframes counter {
+      from {
+        --num: 0;
+      }
+      to {
+        --num: 250639;
+      }
+    }
 
-		@keyframes counter {
-			from {
-				--num: 0;
-			}
-			to {
-				--num: 250639;
-			}
-		}
+    .counter-text {
+      font-size: 25px;
+      padding-top: 20px;
+    }
 
-		.counter-text {
-			font-size: 25px;
-			padding-top: 20px;
-		}
-	</style>
+    @media only screen and (max-width: 768px) {
+      .header a {
+        font-size: 0.8em;
+      }
+
+      .header a.logo {
+        font-size: 1em;
+      }
+
+      .title_border {
+        margin: 10px;
+      }
+
+      h1,
+      h3 {
+        font-size: 1.2em;
+      }
+
+      .input,
+      button {
+        width: 95%;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .header a {
+        font-size: 0.8em;
+      }
+
+      .header a.logo {
+        font-size: 1em;
+      }
+
+      .title_border {
+        margin: 10px;
+      }
+
+      h1,
+      h3 {
+        font-size: 1.2em;
+      }
+
+      .input,
+      button {
+        width: 95%;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .header a {
+        font-size: 0.7em;
+        padding: 10px 8px;
+      }
+
+      .header a.logo {
+        font-size: 0.9em;
+      }
+
+      h1,
+      h3 {
+        font-size: 1em;
+      }
+
+      .title_border {
+        margin: 5px;
+        padding: 5px;
+      }
+    }
+  </style>
 </html>
