@@ -8,13 +8,14 @@ References: https://docs.djangoproject.com/en/4.2/topics/http/views/
 '''
 import os
 from django.shortcuts import render
-from .forms import EmailSearchForm, PasswordSearchForm
+from .forms import EmailSearchForm, PasswordSearchForm, PasswordGeneratorForm
 from .models import EmailFile, RegisteredUser
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponseRedirect
 import pwnedpasswords
-
+import string
+import random
 from cryptography.hazmat.primitives.ciphers.aead import AESCCM
 
 KEY = bytes.fromhex('59f055c39b5074dc7ea97abde24fc05a')
@@ -178,3 +179,53 @@ def password_page(request):
         form = PasswordSearchForm()
     
     return render(request, 'password.html', {'form': form})
+
+'''
+Function Name: passgen_page(request)
+Description: This function handles the rendering of the passgen.html page and the
+             generation of passwords based on user preferences. Upon a POST request,
+             it processes the submitted PasswordGeneratorForm to generate a random password
+             according to the specified criteria (lowercase, uppercase, numbers, and special characters).
+             If no options are selected, it prompts the user to select at least one option.
+             The generated password, if any, is then displayed on the passgen.html page.
+Parameters: request
+Return Value: HTTPResponse
+Author(s): Brian Arango
+Last Modified Date: 15 November 2023
+Assumptions: N/A
+References: https://docs.djangoproject.com/en/4.2/ref/request-response/
+'''
+
+def passgen_page(request):
+    generated_password = None
+
+    if request.method == 'POST':
+        form = PasswordGeneratorForm(request.POST)
+        if form.is_valid():
+            # Extracting the choices from the form.
+            include_lowercase = form.cleaned_data['include_lowercase']
+            include_uppercase = form.cleaned_data['include_uppercase']
+            include_numbers = form.cleaned_data['include_numbers']
+            include_special = form.cleaned_data['include_special']
+
+            # Building the character set based on choices.
+            characters = ''
+            if include_lowercase:
+                characters += string.ascii_lowercase
+            if include_uppercase:
+                characters += string.ascii_uppercase
+            if include_numbers:
+                characters += string.digits
+            if include_special:
+                characters += string.punctuation
+
+            # Generating the password.
+            if characters:
+                generated_password = ''.join(random.choice(characters) for i in range(12))  # Example length: 12
+            else:
+                generated_password = 'Please select at least one option.'
+
+    else:
+        form = PasswordGeneratorForm()
+
+    return render(request, 'passgen.html', {'form': form, 'generated_password': generated_password})
