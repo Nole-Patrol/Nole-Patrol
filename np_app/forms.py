@@ -57,9 +57,7 @@ class PasswordGeneratorForm(forms.Form):
     include_lowercase = forms.BooleanField(label="Include Lowercase", required=False)
     include_uppercase = forms.BooleanField(label="Include Uppercase", required=False)
     include_numbers = forms.BooleanField(label="Include Numbers", required=False)
-    include_special = forms.BooleanField(
-        label="Include Special Characters", required=False
-    )
+    include_special = forms.BooleanField(label="Include Symbols", required=False)
     password_length = forms.IntegerField(
         label="Password Length", min_value=6, max_value=20, initial=12
     )

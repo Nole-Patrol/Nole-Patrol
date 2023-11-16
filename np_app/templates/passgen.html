@@ -35,17 +35,17 @@ References: N/A
 	</body>
 
     <div class="container">
-    <form class="card" method="POST" action="{% url 'passgen' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Generate Password</button>
-    </form>
-</div>
+      <form class="card" method="POST" action="{% url 'passgen' %}">
+          {% csrf_token %}
+          {{ form.as_div }}
+          <button type="submit">Generate Password</button>
+      </form>
+    </div>
 {% if generated_password %}
-<div class="card">
+<div class="card_res">
     <div class="card_text">
         <h2>Generated Password:</h2>
-        <p>{{ generated_password }}</p>
+        <div>{{ generated_password }}</div>
     </div>
 </div>
 {% endif %}
@@ -293,7 +293,7 @@ References: N/A
 		}
 
     .container {
-        display: flex;
+        display: flexbox;
         justify-content: center;
         align-items: center;
     }
@@ -303,13 +303,13 @@ References: N/A
         flex-direction: column;
         align-items: center;
         width: 800px;
-        height: 600px;
+        height: 300px;
         border-radius: 30px;
         color: white;
-        background: hsla(349, 45%, 33%, 1);
+        background: hsla(349, 45%, 33%) 50%);
         box-shadow: 15px 15px 30px rgb(25, 25, 25),
                     -15px -15px 30px rgb(60, 60, 60);
-        margin-left: 100px;
+        margin: 0 auto;
     }
 
     .card_text {
@@ -318,7 +318,21 @@ References: N/A
         font-size: 20px;
         text-align: center;
     }
-
+    .card_res{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 420px;
+        height: 240px;
+        border-radius: 30px;
+        color: white;
+        background: hsla(349, 45%, 33%, 25%);
+        box-shadow: 15px 15px 30px rgb(25, 25, 25),
+                    -15px -15px 30px rgb(60, 60, 60);
+        margin: 0 auto;
+        margin-top: 30px;
+    }
 	</style>
 </html>
 
