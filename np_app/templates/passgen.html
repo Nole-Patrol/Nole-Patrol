@@ -34,6 +34,23 @@ References: N/A
 		<div class="title_text">Generate a secure password</div>
 	</body>
 
+    <div class="container">
+    <form class="card" method="POST" action="{% url 'passgen' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate Password</button>
+    </form>
+</div>
+{% if generated_password %}
+<div class="card">
+    <div class="card_text">
+        <h2>Generated Password:</h2>
+        <p>{{ generated_password }}</p>
+    </div>
+</div>
+{% endif %}
+
+
 	<style>
 		/* Style and format the entire site*/
 		body {
@@ -274,6 +291,34 @@ References: N/A
 			font-size: 25px;
 			padding-top: 20px;
 		}
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 800px;
+        height: 600px;
+        border-radius: 30px;
+        color: white;
+        background: hsla(349, 45%, 33%, 1);
+        box-shadow: 15px 15px 30px rgb(25, 25, 25),
+                    -15px -15px 30px rgb(60, 60, 60);
+        margin-left: 100px;
+    }
+
+    .card_text {
+        padding-top: 35px;
+        padding-left: 10px;
+        font-size: 20px;
+        text-align: center;
+    }
+
 	</style>
 </html>
 
