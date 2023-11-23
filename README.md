@@ -19,7 +19,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]](https://github.com/Nole-Patrol/Nole-Patrol)
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -85,7 +85,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Nole-Patrol Screen Shot][product-screenshot]<!--(https://example.com)-->
+![Nole-Patrol Screen Shot](./static/images/new_screenshot.png)<!--(https://example.com)-->
 
 Students, faculty, staff, and administrators at Florida State University face the risk of data breaches that could leak
 sensitive information including credentials associated with their fsu.edu email addresses and associated accounts. Nole
