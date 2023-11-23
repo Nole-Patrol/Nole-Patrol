@@ -31,8 +31,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/michaelsousajr/Nole-Patrol">
-    <img src="static/img/fsuicon.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Nole-Patrol/Nole-Patrol">
+    <img src="static/images/fsuicon.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Nole Patrol: FSU Data Breach Search Engine</h3>
@@ -40,14 +40,14 @@
   <p align="center">
     A data breach search engine for Florida State University
     <br />
-    <a href="https://github.com/michaelsousajr/Nole-Patrol"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Nole-Patrol/Nole-Patrol"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/michaelsousajr/Nole-Patrol">View Demo</a>
+    <a href="https://github.com/Nole-Patrol/Nole-Patrol">View Demo</a>
     ·
-    <a href="https://github.com/michaelsousajr/Nole-Patrol/issues">Report Bug</a>
+    <a href="https://github.com/Nole-Patrol/Nole-Patrol/issues">Report Bug</a>
     ·
-    <a href="https://github.com/michaelsousajr/Nole-Patrol/issues">Request Feature</a>
+    <a href="https://github.com/Nole-Patrol/Nole-Patrol/issues">Request Feature</a>
   </p>
 </div>
 
@@ -128,7 +128,7 @@ Once you've created and activated your venv, install the following dependencies 
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/michaelsousajr/Nole-Patrol.git
+   git clone https://github.com/Nole-Patrol/Nole-Patrol.git
    ```
 2. Navigate to the Nole-Patrol directory.
 3. Install Django and relevant packages.
@@ -222,7 +222,7 @@ Nole Patrol is a student-developed product and is not affiliated, associated, au
 
 Nole Patrol Team - <!--[@twitter_handle](https://twitter.com/twitter_handle) - --> NolePatrolProj@gmail.com
 
-Project Link: [https://github.com/michaelsousajr/Nole-Patrol](https://github.com/michaelsousajr/Nole-Patrol)
+Project Link: [https://github.com/Nole-Patrol/Nole-Patrol](https://github.com/Nole-Patrol/Nole-Patrol)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -240,16 +240,16 @@ Project Link: [https://github.com/michaelsousajr/Nole-Patrol](https://github.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/michaelsousajr/Nole-Patrol.svg?style=for-the-badge
-[contributors-url]: https://github.com/michaelsousajr/Nole-Patrol/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/michaelsousajr/Nole-Patrol.svg?style=for-the-badge
-[forks-url]: https://github.com/michaelsousajr/Nole-Patrol/network/members
+[contributors-shield]: https://img.shields.io/github/contributors/Nole-Patrol/Nole-Patrol.svg?style=for-the-badge
+[contributors-url]: https://github.com/Nole-Patrol/Nole-Patrol/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Nole-Patrol/Nole-Patrol.svg?style=for-the-badge
+[forks-url]: https://github.com/Nole-Patrol/Nole-Patrol/network/members
 [stars-shield]: https://img.shields.io/github/stars/michaelsousajr/Nole-Patrol.svg?style=for-the-badge
-[stars-url]: https://github.com/michaelsousajr/Nole-Patrol/stargazers
-[issues-shield]: https://img.shields.io/github/issues/michaelsousajr/Nole-Patrol.svg?style=for-the-badge
-[issues-url]: https://github.com/michaelsousajr/Nole-Patrol/issues
+[stars-url]: https://github.com/Nole-Patrol/Nole-Patrol/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Nole-Patrol/Nole-Patrol.svg?style=for-the-badge
+[issues-url]: https://github.com/Nole-Patrol/Nole-Patrol/issues
 [license-shield]: https://img.shields.io/github/license/michaelsousajr/Nole-Patrol.svg?style=for-the-badge
-[license-url]: https://github.com/michaelsousajr/Nole-Patrol/blob/master/LICENSE.txt
+[license-url]: https://github.com/Nole-Patrol/Nole-Patrol/blob/master/LICENSE.txt
 [product-screenshot]: static/img/screenshot.JPG
 <!--[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
