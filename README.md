@@ -197,11 +197,9 @@ We welcome contributions from the community. If you'd like to contribute to Nole
 
 
 ## License
-<!-- documentation in progress - cmg
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
--->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
