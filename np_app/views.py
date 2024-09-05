@@ -13,7 +13,7 @@ from .models import EmailFile, RegisteredUser
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponseRedirect
-import pwnedpasswords
+#import pwnedpasswords
 import string
 import random
 from cryptography.hazmat.primitives.ciphers.aead import AESCCM

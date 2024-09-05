@@ -3,9 +3,10 @@ cffi==1.16.0
 cryptography==41.0.5
 Django==4.2.6
 future==0.18.3
-pwnedpasswords==2.0.0
+#pwnedpasswords==2.0.0
 pycparser==2.21
 pyprog==1.1.0.post2
 sqlparse==0.4.4
 typing_extensions==4.8.0
 tzdata==2023.3
+django-cryptography==1.1.0
